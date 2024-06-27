@@ -21,7 +21,7 @@ except FileNotFoundError as e:
     print(f"Error: {e}")
     exit()
 
-new_target_words = new_words_df['Word'].tolist()  # Assuming the column name is 'Word'
+new_target_words = new_words_df['Target_Word'].tolist()  # Assuming the column name is 'Word'
 
 # Function to generate new assessment items
 def generate_assessment_item(word):
