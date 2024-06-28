@@ -104,7 +104,7 @@ try:
     # existing_items.to_csv(annotated_items_path, index=False)
     # formatted_items_df.to_csv(new_items_path, index=False, sep=';')
     existing_items.to_csv(annotated_items_path, index=False, encoding='utf-8')
-    formatted_items_df.to_csv(new_items_path, index=False, sep=';', encoding='utf-8')
+    formatted_items_df.to_csv(new_items_path, index=False, sep=',', encoding='utf-8')
     print(f"Annotated existing items saved to: {annotated_items_path}")
     print(f"New assessment items saved to: {new_items_path}")
 except Exception as e:
