@@ -6,8 +6,7 @@ import time
 from config import api_key
 
 # Load your API key from an environment variable or secret management service
-openai.api_key = api_key=api_key
-
+openai.api_key = api_key = api_key
 
 # Define relative paths for the CSV files
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -23,6 +22,7 @@ except FileNotFoundError as e:
 
 new_target_words = new_words_df['Target_Word'].tolist()  # Assuming the column name is 'Word'
 
+
 # Function to generate new assessment items
 def generate_assessment_item(word):
     instructions = (
@@ -32,9 +32,9 @@ def generate_assessment_item(word):
         "Create three other responses (Response_B, Response_C, Response_D) that should not be synonyms but should be able to fit grammatically in the Stem. "
         "In total you will create: Target_Word, Stem, Correct_Response, Response_B, Response_C, Response_D."
     )
-    
+
     prompt = f"{instructions}\n\nTarget_Word: {word}"
-    
+
     try:
         response = openai.ChatCompletion.create(
             model="gpt-4o",  # Use the GPT-4o model
@@ -52,6 +52,7 @@ def generate_assessment_item(word):
     except Exception as e:
         print(f"Unexpected error generating assessment item for '{word}': {e}")
         return None
+
 
 # Generate new items
 new_items = []
@@ -86,7 +87,9 @@ for item in new_items:
             response_d = line.split('Response_D:')[1].strip()
             formatted_items.append([target_word, stem, correct_response, response_b, response_c, response_d])
 
-formatted_items_df = pd.DataFrame(formatted_items, columns=['Target Word', 'Stem', 'Correct_Response', 'Response_B', 'Response_C', 'Response_D'])
+formatted_items_df = pd.DataFrame(formatted_items,
+                                  columns=['Target Word', 'Stem', 'Correct_Response', 'Response_B', 'Response_C',
+                                           'Response_D'])
 
 # Example of annotating existing items (This part is based on your need)
 # Adding a 'Status' column to indicate if the item is 'Good' or 'Problematic'
@@ -98,8 +101,10 @@ annotated_items_path = os.path.join(script_dir, 'annotated_training_items.csv')
 new_items_path = os.path.join(script_dir, 'new_assessment_items.csv')
 
 try:
-    existing_items.to_csv(annotated_items_path, index=False)
-    formatted_items_df.to_csv(new_items_path, index=False, sep=';')
+    # existing_items.to_csv(annotated_items_path, index=False)
+    # formatted_items_df.to_csv(new_items_path, index=False, sep=';')
+    existing_items.to_csv(annotated_items_path, index=False, encoding='utf-8')
+    formatted_items_df.to_csv(new_items_path, index=False, sep=';', encoding='utf-8')
     print(f"Annotated existing items saved to: {annotated_items_path}")
     print(f"New assessment items saved to: {new_items_path}")
 except Exception as e:
