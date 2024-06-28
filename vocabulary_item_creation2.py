@@ -57,9 +57,10 @@ def generate_assessment_item(word):
 # Generate new items
 new_items = []
 for word in new_target_words:
-    print(f"Generating item for word: {word}")  # Debug information
+    print(f"Generating item for word: {word}")
     item = generate_assessment_item(word)
     if item:
+        item = item.replace('**', '')  # replace '**' with nothing
         new_items.append({
             "Target Word": word,
             "Generated Item": item
@@ -101,8 +102,6 @@ annotated_items_path = os.path.join(script_dir, 'annotated_training_items.csv')
 new_items_path = os.path.join(script_dir, 'new_assessment_items.csv')
 
 try:
-    # existing_items.to_csv(annotated_items_path, index=False)
-    # formatted_items_df.to_csv(new_items_path, index=False, sep=';')
     existing_items.to_csv(annotated_items_path, index=False, encoding='utf-8')
     formatted_items_df.to_csv(new_items_path, index=False, sep=',', encoding='utf-8')
     print(f"Annotated existing items saved to: {annotated_items_path}")
