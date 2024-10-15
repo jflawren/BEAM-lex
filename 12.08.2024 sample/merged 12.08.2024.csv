@@ -1,0 +1,380 @@
+target_word,frequency_awl,complexity_awl,proximity_awl,diversity_awl,polysemy_awl,strata,stem,correct_response,response_b,response_c,response_d,_merge,target_n
+Statehood,,,,,,,Achieving STATEHOOD meant that the region could now elect its own representatives in the federal government.,independence,population,economy,culture,Using only (2),1
+Statehood,,,,,,,The celebrations to mark the centennial of STATEHOOD included a parade and fireworks.,sovereignty,governance,heritage,diversity,Using only (2),2
+Statehood,,,,,,,"After years of debate and political struggle, the territory was finally granted STATEHOOD.",autonomy,legislation,infrastructure,citizenship,Using only (2),3
+Tabernacle,,,,,,,,,,,,Using only (2),1
+Tabernacle,,,,,,,,,,,,Using only (2),2
+Tabernacle,,,,,,,,,,,,Using only (2),3
+absurd,-.1334749,-.9263159,-.27547029,.4164384,-.33618081,143,It seemed ABSURD to wear a coat in the middle of summer.,nonsensical,stylish,elegant,traditional,Matched (3),1
+absurd,-.1334749,-.9263159,-.27547029,.4164384,-.33618081,143,The idea that the earth is flat is completely ABSURD.,ridiculous,fascinating,conventional,significant,Matched (3),2
+absurd,-.1334749,-.9263159,-.27547029,.4164384,-.33618081,143,The notion that he could finish his homework in ten minutes was simply ABSURD.,preposterous,diligent,plausible,acceptable,Matched (3),3
+adaptive,-1.08948,-1.026734,-.2540803,-1.1548671,-1.635638,241,"The new management system is highly ADAPTIVE, allowing it to respond quickly to changes in the market.",flexible,rigid,resistant,passive,Matched (3),1
+adaptive,-1.08948,-1.026734,-.2540803,-1.1548671,-1.635638,241,Animals in extreme environments tend to develop ADAPTIVE traits that help them survive.,accommodating,static,harmful,dormant,Matched (3),2
+adaptive,-1.08948,-1.026734,-.2540803,-1.1548671,-1.635638,241,His ADAPTIVE learning style enabled him to excel in various educational settings.,versatile,fixed,uninspired,strict,Matched (3),3
+alternator,-1.969198,.71599817,-.30819201,-5.0392842,-1.872191,420,"After the long trip, the ALTERNATOR needed to be replaced to ensure the car's electrical system worked properly.",generator,radiator,transmission,exhaust,Matched (3),1
+alternator,-1.969198,.71599817,-.30819201,-5.0392842,-1.872191,420,The mechanic discovered that the car wasn't starting because the ALTERNATOR was faulty.,generator,accelerator,battery,ignition,Matched (3),2
+alternator,-1.969198,.71599817,-.30819201,-5.0392842,-1.872191,420,"When the headlights began to dim, he knew the problem was most likely a failing ALTERNATOR.",generator,carburetor,muffler,brake,Matched (3),3
+angelical,-4.9739871,-.1662222,1.019376,-3.9799359,-1.82298,301,His ANGELICAL demeanor made him a favorite among the teachers.,pure,rude,exhausted,confused,Matched (3),1
+angelical,-4.9739871,-.1662222,1.019376,-3.9799359,-1.82298,301,Her ANGELICAL voice soothed everyone in the room.,heavenly,harsh,loud,grating,Matched (3),2
+angelical,-4.9739871,-.1662222,1.019376,-3.9799359,-1.82298,301,The ANGELICAL appearance of the child captivated all who saw her.,divine,ordinary,mischievous,tired,Matched (3),3
+apprehensive,-1.553077,1.401337,-.34762409,.36933431,-.91998082,432,He was APPREHENSIVE as the deadline for the important project approached.,nervous,eager,relaxed,prepared,Matched (3),1
+apprehensive,-1.553077,1.401337,-.34762409,.36933431,-.91998082,432,Sarah felt APPREHENSIVE about her first day at the new school.,anxious,excited,confident,indifferent,Matched (3),2
+apprehensive,-1.553077,1.401337,-.34762409,.36933431,-.91998082,432,The travelers were APPREHENSIVE when they noticed the storm clouds gathering.,uneasy,thrilled,ignorant,nonchalant,Matched (3),3
+arthritis,-.84712368,.4428041,-.12660851,-2.304491,-1.904723,340,ARTHRITIS can cause significant discomfort and impact the quality of life of those who suffer from it.,inflammation,congestion,abrasion,curvature,Matched (3),1
+arthritis,-.84712368,.4428041,-.12660851,-2.304491,-1.904723,340,Maria often experiences joint pain and stiffness due to her ARTHRITIS.,inflammation,sprain,fracture,bruise,Matched (3),2
+arthritis,-.84712368,.4428041,-.12660851,-2.304491,-1.904723,340,The doctor recommended certain exercises to help alleviate the symptoms of ARTHRITIS.,inflammation,infection,dehydration,fatigue,Matched (3),3
+awestruck,-2.298928,.0126129,-.3167499,-1.195763,-2.070365,320,The audience was AWESTRUCK by the magician's incredible performance.,astonished,bored,irritated,sleepy,Matched (3),1
+awestruck,-2.298928,.0126129,-.3167499,-1.195763,-2.070365,320,"The hikers stood at the edge of the Grand Canyon, completely AWESTRUCK by the magnificent view.",amazed,confused,uninterested,frightened,Matched (3),2
+awestruck,-2.298928,.0126129,-.3167499,-1.195763,-2.070365,320,The little girl was AWESTRUCK as she watched the fireworks light up the night sky.,spellbound,hungry,annoyed,sleepy,Matched (3),3
+bayou,-1.4537081,-1.581982,.0347206,-2.4100249,-1.966273,30,The alligator moved stealthily through the murky waters of the BAYOU.,marsh,desert,island,mountain,Matched (3),1
+bayou,-1.4537081,-1.581982,.0347206,-2.4100249,-1.966273,30,"Growing up near the BAYOU, she had become accustomed to the sounds of frogs and crickets at night.",swamp,forest,beach,plateau,Matched (3),2
+bayou,-1.4537081,-1.581982,.0347206,-2.4100249,-1.966273,30,The family took a boat tour to explore the lush vegetation along the BAYOU.,wetland,highway,suburb,prairie,Matched (3),3
+beachhead,-2.437325,-.073112398,-.28824481,-1.92375,-1.039831,322,The army established a BEACHHEAD on the coast to ensure a safe landing for additional troops.,foothold,departure,heiress,flyer,Matched (3),1
+beachhead,-2.437325,-.073112398,-.28824481,-1.92375,-1.039831,322,"In the competitive market, the company sought to gain a BEACHHEAD before expanding its operations nationwide.",stronghold,decline,philosopher,flyer,Matched (3),2
+beachhead,-2.437325,-.073112398,-.28824481,-1.92375,-1.039831,322,"The new startup successfully established a BEACHHEAD in the tech industry, which allowed it to grow rapidly.",foothold,retreat,greenery,latitude,Matched (3),3
+bighorn,-2.40713,3.3022349,-.41466191,-2.833734,-1.674731,121,"While hiking in the mountains, we were fortunate enough to spot a BIGHORN on a rocky ledge.",sheep,bird,lizard,bear,Matched (3),1
+bighorn,-2.40713,3.3022349,-.41466191,-2.833734,-1.674731,121,"Rangers at the wildlife reserve are dedicated to protecting the BIGHORN, which is often targeted by poachers.",sheep,wolf,eagle,tiger,Matched (3),2
+bighorn,-2.40713,3.3022349,-.41466191,-2.833734,-1.674731,121,"The national park is famous for its diverse wildlife, including the majestic BIGHORN.",sheep,deer,rabbit,fox,Matched (3),3
+bile,-1.22528,-2.1054249,9.9766979,-2.910171,-1.16453,32,The doctor's report indicated that excessive production of BILE can lead to digestive problems.,gall,urine,saliva,blood,Matched (3),1
+bile,-1.22528,-2.1054249,9.9766979,-2.910171,-1.16453,32,His face turned red with BILE when he heard the unfair accusation.,anger,fear,joy,sorrow,Matched (3),2
+bile,-1.22528,-2.1054249,9.9766979,-2.910171,-1.16453,32,The BILE secreted by the liver is essential for the digestion of fats.,fluid,enzyme,hormone,vitamin,Matched (3),3
+blacklist,-2.7656779,.2214148,-.29540759,-2.0988331,-1.024977,312,James was informed that he had been placed on a company BLACKLIST and was no longer eligible for promotions.,exclusion list,guest list,attendance sheet,menu,Matched (3),1
+blacklist,-2.7656779,.2214148,-.29540759,-2.0988331,-1.024977,312,"The school threatened to BLACKLIST students found cheating, barring them from future events.",prohibit,invite,encourage,monitor,Matched (3),2
+blacklist,-2.7656779,.2214148,-.29540759,-2.0988331,-1.024977,312,"After the scandal, the author found himself on the publishing houses' BLACKLIST, unable to get his new books reviewed.",banned list,waiting list,bestseller list,table of contents,Matched (3),3
+boathouse,-2.0409291,-.28770381,-.26764661,-2.2896399,-1.670868,321,"After a long day on the lake, the fishermen returned their boat to the BOATHOUSE.",pier,restaurant,station,shed,Matched (3),1
+boathouse,-2.0409291,-.28770381,-.26764661,-2.2896399,-1.670868,321,The couple rented a BOATHOUSE to enjoy their vacation by the river.,marina,hotel,apartment,chalet,Matched (3),2
+boathouse,-2.0409291,-.28770381,-.26764661,-2.2896399,-1.670868,321,We decided to store our canoe in the BOATHOUSE for the winter to keep it safe.,dock,garage,barn,basement,Matched (3),3
+bulgy,-3.63605,-1.1563129,1.012418,-2.3103111,-2.1170831,0,"After the long hike, her eyes were BULGY from lack of sleep.",swollen,cheerful,radiant,sleepy,Matched (3),1
+bulgy,-3.63605,-1.1563129,1.012418,-2.3103111,-2.1170831,0,"The old, BULGY suitcase seemed like it would burst open at any moment.",protruding,compact,invisible,empty,Matched (3),2
+bulgy,-3.63605,-1.1563129,1.012418,-2.3103111,-2.1170831,0,His muscles looked BULGY after months of intense weightlifting.,enlarged,weak,narrow,soft,Matched (3),3
+buttonhook,-4.939497,.63547248,-.30595151,-2.975148,-2.28158,400,She demonstrated how to use a BUTTONHOOK to make fastening the buttons on her dress much easier.,device,trick,pattern,cloth,Matched (3),1
+buttonhook,-4.939497,.63547248,-.30595151,-2.975148,-2.28158,400,"While cleaning out the attic, I discovered an old BUTTONHOOK among my grandmother's belongings.",tool,photograph,letter,blanket,Matched (3),2
+buttonhook,-4.939497,.63547248,-.30595151,-2.975148,-2.28158,400,The nurse used a BUTTONHOOK to fasten the small buttons on the patient's gown.,fastener,scissors,thread,needle,Matched (3),3
+camion,-4.548708,.1059327,-.2961998,-4.2347031,-1.921082,100,"The CAMION broke down on the highway, causing a significant delay in delivery.",truck,car,bike,cart,Matched (3),1
+camion,-4.548708,.1059327,-.2961998,-4.2347031,-1.921082,100,"During the harvest season, a CAMION full of fresh produce arrives at the market daily.",lorry,van,basket,crate,Matched (3),2
+camion,-4.548708,.1059327,-.2961998,-4.2347031,-1.921082,100,The workers used a large CAMION to transport the construction materials to the site.,truck,vehicle,tool,machine,Matched (3),3
+carefree,-1.356995,-.18780109,-.2708315,.53463179,-1.257787,232,"On their vacation, the couple enjoyed a CAREFREE week exploring the countryside without any set plans.",relaxed,rigorous,solemn,anxious,Matched (3),1
+carefree,-1.356995,-.18780109,-.2708315,.53463179,-1.257787,232,Her CAREFREE attitude towards life often made her the center of attention at gatherings.,untroubled,meticulous,cautious,gloomy,Matched (3),2
+carefree,-1.356995,-.18780109,-.2708315,.53463179,-1.257787,232,"The children played in the park, running around and laughing in their CAREFREE manner.",lighthearted,busy,attentive,worried,Matched (3),3
+chairman,.41878209,-.3334876,-.1185334,-.031857401,-1.19092,242,The CHAIRMAN thanked all the stakeholders for their continued support and cooperation.,president,clerk,visitor,observer,Matched (3),1
+chairman,.41878209,-.3334876,-.1185334,-.031857401,-1.19092,242,The CHAIRMAN of the board called the meeting to order promptly at 9 AM.,leader,assistant,guest,participant,Matched (3),2
+chairman,.41878209,-.3334876,-.1185334,-.031857401,-1.19092,242,"As the CHAIRMAN, he had the final say in all the company's major decisions.",head,employee,spectator,learner,Matched (3),3
+cock,-.51192141,-2.303277,7.8873739,-1.025781,1.550397,44,He always had to COCK his hat at a jaunty angle before leaving the house.,tilt,clean,remove,straighten,Matched (3),1
+cock,-.51192141,-2.303277,7.8873739,-1.025781,1.550397,44,She had to COCK the hammer back before taking aim with the rifle.,pull back,hide,drop,lift,Matched (3),2
+cock,-.51192141,-2.303277,7.8873739,-1.025781,1.550397,44,The rooster began to COCK its head curiously at the noise coming from the barn.,tilt,hide,boast,perch,Matched (3),3
+cockeyed,-2.758297,-.54790318,-.040678699,-1.814664,-.76759988,213,The artist created a COCKEYED portrait that left the audience both puzzled and intrigued.,bizarre,beautiful,conventional,realistic,Matched (3),1
+cockeyed,-2.758297,-.54790318,-.040678699,-1.814664,-.76759988,213,"After assembling the table, it was evident that the legs were COCKEYED and uneven.",askew,sturdy,balanced,aligned,Matched (3),2
+cockeyed,-2.758297,-.54790318,-.040678699,-1.814664,-.76759988,213,Her plans for the weekend were so COCKEYED that no one could take them seriously.,absurd,organized,logical,thrilling,Matched (3),3
+codebook,-3.736362,-1.861369,11.84046,-4.030724,.056676898,204,The researchers referred to the CODEBOOK to decode the encrypted messages.,manual,guide,wrapper,tablet,Matched (3),1
+codebook,-3.736362,-1.861369,11.84046,-4.030724,.056676898,204,"In order to understand the survey data, the analysts used the CODEBOOK provided by the team.",reference,directory,container,metaphor,Matched (3),2
+codebook,-3.736362,-1.861369,11.84046,-4.030724,.056676898,204,"Before starting their analysis, the scientists studied the CODEBOOK to become familiar with the terminology used.",glossary,anthology,mixture,device,Matched (3),3
+connive,-3.664176,-.84021032,-.26315349,-2.0236249,-.86938512,103,"When the children conspired to sneak out of the house, they had to CONNIVE to avoid getting caught by their parents.",conspire,argue,greet,report,Matched (3),1
+connive,-3.664176,-.84021032,-.26315349,-2.0236249,-.86938512,103,The employees suspected their manager was trying to CONNIVE with upper management to implement unfavorable changes secretly.,scheme,argue,collaborate,disclose,Matched (3),2
+connive,-3.664176,-.84021032,-.26315349,-2.0236249,-.86938512,103,It became clear that the two politicians would CONNIVE to undermine their opponent in the upcoming election.,plot,debate,negotiate,reveal,Matched (3),3
+conscientious,-1.02028,1.7615319,-.37063631,.67162228,-.95450288,442,"The team appreciated how CONSCIENTIOUS their leader was, always paying attention to every detail in the projects.",meticulous,spontaneous,mundane,erratic,Matched (3),1
+conscientious,-1.02028,1.7615319,-.37063631,.67162228,-.95450288,442,His CONSCIENTIOUS approach to his work meant he could be relied upon to produce high-quality results consistently.,attentive,lazy,hasty,indifferent,Matched (3),2
+conscientious,-1.02028,1.7615319,-.37063631,.67162228,-.95450288,442,"Sarah was very CONSCIENTIOUS in her preparation for the exam, ensuring she reviewed all the course material thoroughly.",diligent,careless,hesitant,quick,Matched (3),3
+contemporary,.6645453,2.013484,-.38783199,.12890141,-.0122284,444,The gallery showcases CONTEMPORARY artworks from various modern artists.,modern,ancient,traditional,classical,Matched (3),1
+contemporary,.6645453,2.013484,-.38783199,.12890141,-.0122284,444,The architect used CONTEMPORARY designs to give the building a sleek and up-to-date look.,current,historical,outdated,rustic,Matched (3),2
+contemporary,.6645453,2.013484,-.38783199,.12890141,-.0122284,444,"As a CONTEMPORARY of Shakespeare, Christopher Marlowe shared similar themes in his plays.",peer,critic,historian,admirer,Matched (3),3
+contour,-.83968961,-.63873678,-.28759351,-.6492542,.49197999,144,The plant’s roots need to OXYGENATE through proper soil management to promote healthy growth.,ventilate,moisturize,fertilize,compact,Matched (3),1
+contour,-.83968961,-.63873678,-.28759351,-.6492542,.49197999,144,The artist carefully outlined the CONTOUR of the model's face in the sketch.,outline,shadow,color,texture,Matched (3),2
+contour,-.83968961,-.63873678,-.28759351,-.6492542,.49197999,144,The makeup artist used different shades to highlight and define the CONTOUR of her cheekbones.,shape,sparkle,hue,length,Matched (3),3
+contour,-.83968961,-.63873678,-.28759351,-.6492542,.49197999,144,"The hiker's map showed every CONTOUR of the mountain terrain, making it easy to plan his route.",outline,peak,forest,rock,Matched (3),4
+contour,-.83968961,-.63873678,-.28759351,-.6492542,.49197999,144,"The process will OXYGENATE the water, making it suitable for the fish to breathe.",aerate,warm,filter,boil,Matched (3),5
+contour,-.83968961,-.63873678,-.28759351,-.6492542,.49197999,144,"To ensure the muscles receive enough energy, it's important to OXYGENATE the blood during heavy exercise.",enrich,dehydrate,dilute,cool,Matched (3),6
+cosmology,-1.528409,.7309643,-.33200139,-2.5938151,-.91608858,332,The book on COSMOLOGY provided an in-depth understanding of the universe’s evolution from the Big Bang to the present day.,astrophysics,biology,sociology,archaeology,Matched (3),1
+cosmology,-1.528409,.7309643,-.33200139,-2.5938151,-.91608858,332,"In his lectures, the professor discussed the principles of COSMOLOGY and how they relate to the origins of the universe.",astrophysics,geology,anthropology,archaeology,Matched (3),2
+cosmology,-1.528409,.7309643,-.33200139,-2.5938151,-.91608858,332,She decided to major in COSMOLOGY to explore the fundamental questions about the universe's origin and structure.,astrophysics,botany,musicology,economics,Matched (3),3
+courtyard,-.46833819,.28262949,-.30782959,-.76049489,-1.686005,341,The hotel features a beautiful COURTYARD with a fountain and several gardens.,patio,lobby,suite,hallway,Matched (3),1
+courtyard,-.46833819,.28262949,-.30782959,-.76049489,-1.686005,341,The children played in the spacious COURTYARD until the sun went down.,enclosure,living room,balcony,alley,Matched (3),2
+courtyard,-.46833819,.28262949,-.30782959,-.76049489,-1.686005,341,We enjoyed our morning coffee in the quiet COURTYARD away from the noise of the street.,quad,office,rooftop,sidewalk,Matched (3),3
+cuisine,-1.220778,-.61102748,-.27762479,-3.407022,-1.787961,131,His interest in French CUISINE led him to enroll in a prestigious cooking school in Paris.,cooking,culture,art,language,Matched (3),1
+cuisine,-1.220778,-.61102748,-.27762479,-3.407022,-1.787961,131,"When traveling to different countries, it's always exciting to try the local CUISINE and experience new flavors.",dishes,landmarks,customs,traditions,Matched (3),2
+cuisine,-1.220778,-.61102748,-.27762479,-3.407022,-1.787961,131,"The restaurant is known for its exceptional Italian CUISINE, which includes a variety of handmade pasta and wood-fired pizzas.",food,decoration,furniture,service,Matched (3),3
+cymbal,-2.631809,-1.017489,-.16573361,-1.809988,-1.640889,111,The drummer added a quick crash of the CYMBAL to emphasize the dramatic end to the piece.,gong,drumstick,piano,clarinet,Matched (3),1
+cymbal,-2.631809,-1.017489,-.16573361,-1.809988,-1.640889,111,"During the orchestra's performance, the percussionist struck the CYMBAL with great force, producing a loud, crashing sound.",gong,guitar,violin,trumpet,Matched (3),2
+cymbal,-2.631809,-1.017489,-.16573361,-1.809988,-1.640889,111,"In the rock band's energetic finale, the drummer's rhythmic hits on the CYMBAL echoed through the stadium.",gong,microphone,bass,keyboard,Matched (3),3
+depiction,-1.692847,-.031723399,-.291242,-2.6202991,.1579157,334,The book's DEPICTION of rural life in the 19th century is both poignant and thorough.,illustration,celebration,disruption,commentary,Matched (3),1
+depiction,-1.692847,-.031723399,-.291242,-2.6202991,.1579157,334,The movie's DEPICTION of historical events was praised for its accuracy and attention to detail.,representation,omission,invention,avoidance,Matched (3),2
+depiction,-1.692847,-.031723399,-.291242,-2.6202991,.1579157,334,The artist's DEPICTION of the bustling marketplace captured the vibrant energy and diversity of the scene.,portrayal,creation,destruction,removal,Matched (3),3
+dethrone,-2.9452879,-.20166969,-.2941294,-.86619103,-1.885605,210,The board members voted to DETHRONE the company’s CEO after the poor financial report.,oust,appoint,praise,consult,Matched (3),1
+dethrone,-2.9452879,-.20166969,-.2941294,-.86619103,-1.885605,210,Many believe that the reigning champion will be DETHRONED in the upcoming match.,unseated,promoted,cheered,followed,Matched (3),2
+dethrone,-2.9452879,-.20166969,-.2941294,-.86619103,-1.885605,210,"After a series of defeats, the once-mighty king was finally DETHRONED by his enemies.",removed,celebrated,assisted,reinforced,Matched (3),3
+devour,-1.417629,-1.0401241,.55286598,.0264236,.1453242,134,The children were so hungry that they began to DEVOUR the sandwiches as soon as they were served.,consume,admire,ignore,decorate,Matched (3),1
+devour,-1.417629,-1.0401241,.55286598,.0264236,.1453242,134,"After the long hike, the campers sat by the fire to DEVOUR their dinner.",gobble,discuss,examine,scatter,Matched (3),2
+devour,-1.417629,-1.0401241,.55286598,.0264236,.1453242,134,"The wolves moved quickly to DEVOUR their prey, leaving nothing behind.",eat,create,protect,observe,Matched (3),3
+divvy,-3.0263779,-1.386676,-.0276288,-3.5673699,-1.5388,11,"After the marathon, the organizers decided to DIVVY up the prize money equally among the top finishers.",distribute,cook,collect,subtract,Matched (3),1
+divvy,-3.0263779,-1.386676,-.0276288,-3.5673699,-1.5388,11,The roommates need to DIVVY the household chores so that everyone contributes equally.,share,ignore,plan,increase,Matched (3),2
+divvy,-3.0263779,-1.386676,-.0276288,-3.5673699,-1.5388,11,The team leader asked everyone to DIVVY the workload to ensure the project meets its deadline.,apportion,delay,create,understand,Matched (3),3
+drowse,-3.840909,-1.492648,.76799208,-2.2172611,-.2653406,104,"After a big meal, he couldn't help but DROWSE in the comfy armchair.",doze,eat,read,cry,Matched (3),1
+drowse,-3.840909,-1.492648,.76799208,-2.2172611,-.2653406,104,"During the long lecture, several students began to DROWSE.",nod off,write,question,listen,Matched (3),2
+drowse,-3.840909,-1.492648,.76799208,-2.2172611,-.2653406,104,The hot summer afternoon made me want to DROWSE under the shade of the old oak tree.,nap,study,argue,jump,Matched (3),3
+dustman,-4.3059978,-.1874572,-.2606076,-.7596401,-1.4441431,102,The GRUELING climb to the mountain's peak left the hikers completely drained of energy.,refuse collector,bus driver,baker,musician,Matched (3),1
+dustman,-4.3059978,-.1874572,-.2606076,-.7596401,-1.4441431,102,The GRUELING climb to the mountain's peak left the hikers completely drained of energy.,trash collector,mechanic,chef,pilot,Matched (3),2
+dustman,-4.3059978,-.1874572,-.2606076,-.7596401,-1.4441431,102,The GRUELING climb to the mountain's peak left the hikers completely drained of energy.,garbage collector,mailman,gardener,carpenter,Matched (3),3
+electro,-2.6550021,-.86608249,-.2422855,-4.0014949,-1.115592,112,"Many modern pop songs incorporate ELEMENTS of ELECTRO, making them popular in nightclubs.",electronic,classical,lyrical,narrative,Matched (3),1
+electro,-2.6550021,-.86608249,-.2422855,-4.0014949,-1.115592,112,"During the party, the DJ played a mix of house, techno, and ELECTRO tracks that kept everyone dancing all night.",electronic,funky,mellow,soulful,Matched (3),2
+electro,-2.6550021,-.86608249,-.2422855,-4.0014949,-1.115592,112,"The band's latest album features a wide range of genres, with a significant influence from ELECTRO music.",electronic,acoustic,jazz,classical,Matched (3),3
+fairlead,-4.6749678,-1.2429529,-.1886946,-2.15169,-1.80564,201,"The sailor adjusted the rope, ensuring it ran smoothly through the FAIRLEAD on the deck.",pulley,anchor,mast,compass,Matched (3),1
+fairlead,-4.6749678,-1.2429529,-.1886946,-2.15169,-1.80564,201,The FAIRLEAD was crucial in keeping the cable aligned and prevented it from getting tangled.,conduit,net,hull,rudder,Matched (3),2
+fairlead,-4.6749678,-1.2429529,-.1886946,-2.15169,-1.80564,201,"To reduce the wear on the lines, we passed the ropes through the FAIRLEAD before securing them.",guide,knot,sail,harpoon,Matched (3),3
+fanatic,-1.133706,-.4188486,-.26747099,-.40174481,-.75783157,133,"As a football FANATIC, Mark had his house decorated entirely in his team's colors.",devotee,critic,employee,neighbor,Matched (3),1
+fanatic,-1.133706,-.4188486,-.26747099,-.40174481,-.75783157,133,The politician's proposals appealed to a small but vocal group of FANATICs.,extremists,participants,observers,voters,Matched (3),2
+fanatic,-1.133706,-.4188486,-.26747099,-.40174481,-.75783157,133,Joan was such a FANATIC about fitness that she never missed a day at the gym.,enthusiast,skeptic,teacher,beginner,Matched (3),3
+fantastical,-2.2008901,2.322417,-.38629591,-1.015232,-1.182196,422,The child's imagination was so FANTASTICAL that he could weave stories of dragons and fairies out of thin air.,imaginative,boring,logical,typical,Matched (3),1
+fantastical,-2.2008901,2.322417,-.38629591,-1.015232,-1.182196,422,The artist's FANTASTICAL paintings captured a world of vivid colors and dreamlike landscapes.,whimsical,dull,ordinary,realistic,Matched (3),2
+fantastical,-2.2008901,2.322417,-.38629591,-1.015232,-1.182196,422,"The movie featured FANTASTICAL creatures and enchanted forests, captivating the audience entirely.",magical,mundane,reasonable,practical,Matched (3),3
+fatality,-1.753395,.088079698,-.2953181,-1.673229,-.50554347,233,"The accident on the highway resulted in a FATALITY, prompting an immediate investigation.",death,delay,rescue,celebration,Matched (3),1
+fatality,-1.753395,.088079698,-.2953181,-1.673229,-.50554347,233,"Due to the intense storm, the news reported a FATALITY in the coastal town.",casualty,arrival,victory,performance,Matched (3),2
+fatality,-1.753395,.088079698,-.2953181,-1.673229,-.50554347,233,The construction site was closed after a tragic FATALITY occurred yesterday.,demise,meeting,conference,enhancement,Matched (3),3
+flatfoot,-3.907021,-.0142465,-.2466592,-2.541116,-1.381254,202,"The old FLATFOOT’s days of chasing criminals were long behind him, but he still had valuable stories to tell.",detective,thief,musician,athlete,Matched (3),1
+flatfoot,-3.907021,-.0142465,-.2466592,-2.541116,-1.381254,202,"Losing his balance, he stumbled like a true FLATFOOT at the dance competition.",clumsy person,seasoned dancer,enthusiastic spectator,experienced judge,Matched (3),2
+flatfoot,-3.907021,-.0142465,-.2466592,-2.541116,-1.381254,202,The detective was known on the street as a reliable FLATFOOT who could always be counted on to solve the case.,police officer,firefighter,teacher,doctor,Matched (3),3
+frontage,-2.41435,-.2178272,-.27875519,-3.060307,-.46103421,223,The property has an impressive FRONTAGE overlooking the main road.,facade,garden,garage,basement,Matched (3),1
+frontage,-2.41435,-.2178272,-.27875519,-3.060307,-.46103421,223,The new restaurant boasts a stunning FRONTAGE that attracts many customers.,facade,menu,kitchen,staff,Matched (3),2
+frontage,-2.41435,-.2178272,-.27875519,-3.060307,-.46103421,223,The store's charming FRONTAGE was decorated with festive lights for the holidays.,facade,sale,inventory,display,Matched (3),3
+furl,-3.6364181,-2.0004311,4.4475169,-1.876068,-1.202444,2,"After the ceremony, the scouts began to FURL the flag with great care.",roll up,raise,clean,wave,Matched (3),1
+furl,-3.6364181,-2.0004311,4.4475169,-1.876068,-1.202444,2,The campground guide instructed everyone to FURL their tents before leaving.,pack up,set up,inspect,clean,Matched (3),2
+furl,-3.6364181,-2.0004311,4.4475169,-1.876068,-1.202444,2,"Before the storm hit, the sailors needed to FURL the sails to prevent any damage.",wrap up,hoist,sew,mend,Matched (3),3
+fusspot,-4.2408199,1.620153,-.35677919,-2.802145,-1.73809,101,"Because Martha is a FUSSPOT when it comes to cleanliness, her house is always spotless but it drives her family crazy.",fussbudget,traveler,extrovert,gambler,Matched (3),1
+fusspot,-4.2408199,1.620153,-.35677919,-2.802145,-1.73809,101,Sarah’s friends find it hard to keep up with her demands sometimes because she can be such a FUSSPOT about things being in order.,nitpicker,leader,newcomer,dreamer,Matched (3),2
+fusspot,-4.2408199,1.620153,-.35677919,-2.802145,-1.73809,101,"Ever since he became manager, John has turned into a real FUSSPOT, always worrying about the smallest details.",perfectionist,slacker,enthusiast,optimist,Matched (3),3
+gallantry,-2.2786479,.2479472,.3305549,-.96221977,-.14660791,324,,,,,,Master only (1),1
+glum,-2.116667,-1.780383,2.5134561,-.75670159,-.93412977,22,He seemed GLUM as he stared out the window at the rain.,gloomy,ecstatic,attentive,calm,Matched (3),1
+glum,-2.116667,-1.780383,2.5134561,-.75670159,-.93412977,22,"After hearing the bad news, she had a very GLUM expression on her face.",sad,happy,curious,excited,Matched (3),2
+glum,-2.116667,-1.780383,2.5134561,-.75670159,-.93412977,22,The team was feeling GLUM after losing the championship game.,dejected,joyful,energetic,hopeful,Matched (3),3
+gnash,-3.194531,-1.8229361,.1594612,-2.311918,-1.135699,12,,,,,,Master only (1),1
+grueling,-1.636696,.52344543,-.3157672,-1.147405,-2.099267,230,The GRUELING climb to the mountain's peak left the hikers completely drained of energy.,strenuous,leisurely,effortless,relaxing,Matched (3),1
+grueling,-1.636696,.52344543,-.3157672,-1.147405,-2.099267,230,The marathon was so GRUELING that many runners collapsed from exhaustion during the race.,exhausting,refreshing,enjoyable,simple,Matched (3),2
+grueling,-1.636696,.52344543,-.3157672,-1.147405,-2.099267,230,"After a GRUELING week of final exams, the students were eager to relax and unwind.",arduous,easy-going,carefree,dull,Matched (3),3
+guardroom,-4.6881781,.0422123,-.27856901,-2.972898,-1.398705,302,The captain instructed the new recruits to report to the GUARDROOM for their assignments.,watchroom,gym,lounge,auditorium,Matched (3),1
+guardroom,-4.6881781,.0422123,-.27856901,-2.972898,-1.398705,302,The soldiers gathered in the GUARDROOM to plan their next move.,watchroom,kitchen,library,garden,Matched (3),2
+guardroom,-4.6881781,.0422123,-.27856901,-2.972898,-1.398705,302,The prisoner was taken to the GUARDROOM for interrogation after being captured.,watchroom,hall,classroom,office,Matched (3),3
+guerrilla,-.70110953,-.018197101,-.33313689,-1.929737,-1.17221,342,The revolutionary wave gained strength thanks to the relentless efforts of the GUERRILLA movement.,insurgent,commanding,structured,diplomatic,Matched (3),1
+guerrilla,-.70110953,-.018197101,-.33313689,-1.929737,-1.17221,342,The soldiers were ambushed by a group of GUERRILLA fighters hiding in the forest.,insurgent,disciplined,regular,powerful,Matched (3),2
+guerrilla,-.70110953,-.018197101,-.33313689,-1.929737,-1.17221,342,Training became essential for navigating the challenging tactics of GUERRILLA warfare.,insurgent,traditional,formal,orderly,Matched (3),3
+gumbo,-1.924482,-1.130899,.38425121,-3.98806,-.2290304,24,"During Mardi Gras, one of the most popular dishes to enjoy is a steaming pot of GUMBO.",broth,sushi,pizza,pastry,Matched (3),1
+gumbo,-1.924482,-1.130899,.38425121,-3.98806,-.2290304,24,"The chef is famous for his delicious GUMBO, a dish that combines various spices and seafood.",soup,pie,casserole,smoothie,Matched (3),2
+gumbo,-1.924482,-1.130899,.38425121,-3.98806,-.2290304,24,"At the family gathering, everyone savored the hearty bowl of GUMBO.",stew,salad,dessert,sandwich,Matched (3),3
+heckle,-2.972322,-1.241866,.63807422,-.79170609,-.8503564,113,"The fans started to HECKLE the opposing team from the stands, making it hard for the players to focus.",harass,encourage,silence,listen,Matched (3),1
+heckle,-2.972322,-1.241866,.63807422,-.79170609,-.8503564,113,"It is considered rude to HECKLE a speaker during their presentation, as it can throw them off and disturb the audience.",jeer,compliment,whisper,concentrate,Matched (3),2
+heckle,-2.972322,-1.241866,.63807422,-.79170609,-.8503564,113,"During the comedian's performance, some audience members began to HECKLE him, disrupting the show.",taunt,applaud,ignore,praise,Matched (3),3
+heroin,-.46049181,-.96431422,.31694669,-3.16364,-1.678611,141,Health officials are concerned about the surge in HEROIN addiction among teenagers.,narcotic,caffeine,medication,snacks,Matched (3),1
+heroin,-.46049181,-.96431422,.31694669,-3.16364,-1.678611,141,The rising number of overdoses in the city has been attributed to the increase in HEROIN use.,narcotic,aspirin,vitamin,beverage,Matched (3),2
+heroin,-.46049181,-.96431422,.31694669,-3.16364,-1.678611,141,Law enforcement agencies are ramping up efforts to combat HEROIN trafficking across the state.,narcotic,contraband,produce,documents,Matched (3),3
+hieroglyphic,-2.7388,1.743057,-.37601879,-.89305788,-.2375336,414,"Archeologists discovered a HIEROGLYPHIC inscription inside the pyramid, providing clues about its construction.",symbolic,simple,temporary,blank,Matched (3),1
+hieroglyphic,-2.7388,1.743057,-.37601879,-.89305788,-.2375336,414,The ancient Egyptians used a complex system of HIEROGLYPHIC symbols to write on temple walls.,pictorial,numeric,modern,auditory,Matched (3),2
+hieroglyphic,-2.7388,1.743057,-.37601879,-.89305788,-.2375336,414,"To understand the ancient HIEROGLYPHIC text, the researcher studied several old scripts and symbols.",emblematic,verbal,novel,incomplete,Matched (3),3
+horticultural,-1.854432,-.73360699,-.2615549,-1.926352,-1.680624,431,The university offers a variety of HORTICULTURAL programs to teach students about plant cultivation and garden management.,gardening,historical,mathematical,musical,Matched (3),1
+horticultural,-1.854432,-.73360699,-.2615549,-1.926352,-1.680624,431,The HORTICULTURAL society held a flower show that attracted garden enthusiasts from all over the city.,gardening,literary,athletic,industrial,Matched (3),2
+horticultural,-1.854432,-.73360699,-.2615549,-1.926352,-1.680624,431,"She pursued a HORTICULTURAL career, focusing on landscape design and plant care.",gardening,technical,medical,artistic,Matched (3),3
+illusionist,-2.8522689,.95325023,-.3273052,-4.0830188,-1.594017,411,"As an experienced ILLUSIONIST, she was able to create the perfect distraction to pull off her trick.",conjurer,performer,musician,sculptor,Matched (3),1
+illusionist,-2.8522689,.95325023,-.3273052,-4.0830188,-1.594017,411,The ILLUSIONIST captivated the audience with his mind-bending tricks and sleights of hand.,magician,actor,dancer,painter,Matched (3),2
+illusionist,-2.8522689,.95325023,-.3273052,-4.0830188,-1.594017,411,"The young boy aspired to become an ILLUSIONIST, fascinated by the mysterious world of magic.",trickster,scientist,writer,athlete,Matched (3),3
+indelicate,-3.2068291,.70149249,-.29936731,-2.4164979,-.95933622,412,His attempt at humor was considered INDELICATE and offended many people at the dinner.,improper,amusing,polished,intelligent,Matched (3),1
+indelicate,-3.2068291,.70149249,-.29936731,-2.4164979,-.95933622,412,The sudden and INDELICATE comment she made left everyone in the room speechless.,tactless,humorous,heartfelt,friendly,Matched (3),2
+indelicate,-3.2068291,.70149249,-.29936731,-2.4164979,-.95933622,412,"In a moment of INDELICATE honesty, he revealed what he truly thought about his boss's proposal.",insensitive,delightful,articulate,vague,Matched (3),3
+jag,-4.1214519,-2.1945961,12.20553,-2.702574,.15818051,4,"After the emotional JAG of crying, Sofia felt exhausted but relieved.",outburst,interlude,sequence,event,Matched (3),1
+jag,-4.1214519,-2.1945961,12.20553,-2.702574,.15818051,4,Emily went on a shopping JAG and came back with bags full of clothes.,spree,routine,project,schedule,Matched (3),2
+jag,-4.1214519,-2.1945961,12.20553,-2.702574,.15818051,4,"After a three-day JAG of playing video games, Marcus finally decided to go outside and get some fresh air.",spree,break,period,task,Matched (3),3
+jovial,-1.832177,-.6918866,.3572045,-.83017749,-1.879122,130,Sarah's JOVIAL nature always brightens up the room.,cheerful,angry,solemn,confused,Matched (3),1
+jovial,-1.832177,-.6918866,.3572045,-.83017749,-1.879122,130,"His JOVIAL laugh echoed through the hallways, making people smile.",merry,serious,dull,timid,Matched (3),2
+jovial,-1.832177,-.6918866,.3572045,-.83017749,-1.879122,130,The JOVIAL atmosphere of the party made everyone feel welcome and happy.,festive,tense,somber,quiet,Matched (3),3
+krill,-2.2394321,1.261026,-.34873489,-4.1432748,-2.2134731,20,"The arctic waters are teeming with KRILL, which serves as a primary food source for many marine animals.",crustaceans,fish,corals,shells,Matched (3),1
+krill,-2.2394321,1.261026,-.34873489,-4.1432748,-2.2134731,20,Whales often feed on vast swarms of KRILL in the ocean.,shrimp,algae,plankton,seaweed,Matched (3),2
+krill,-2.2394321,1.261026,-.34873489,-4.1432748,-2.2134731,20,Scientists are studying the impact of climate change on the population of KRILL in Antarctic waters.,small shrimp,sea plants,large fish,underwater mammals,Matched (3),3
+larval,-2.038965,-1.004505,.41066369,-3.3829,-1.021612,122,"In the aquarium, the fish are in their LARVAL form, requiring special care and feeding.",immature,developed,ancient,final,Matched (3),1
+larval,-2.038965,-1.004505,.41066369,-3.3829,-1.021612,122,"The scientific study focused on the LARVAL stage of butterflies, an essential period before they become adults.",juvenile,mature,ancient,complete,Matched (3),2
+larval,-2.038965,-1.004505,.41066369,-3.3829,-1.021612,122,The biologist emphasized the vulnerability of marine organisms during their LARVAL phase.,early,sophisticated,stagnant,last,Matched (3),3
+lethal,-.7158286,-1.0112211,-.24656171,-.34009531,-1.909003,140,Handling the unknown chemical without proper gear could result in LETHAL consequences.,life-threatening,trivial,inconsequential,irrelevant,Matched (3),1
+lethal,-.7158286,-1.0112211,-.24656171,-.34009531,-1.909003,140,The detectives found that the suspect used a LETHAL dose of poison in the crime.,fatal,ineffective,harmless,beneficial,Matched (3),2
+lethal,-.7158286,-1.0112211,-.24656171,-.34009531,-1.909003,140,"The spider's bite proved to be LETHAL to its prey, causing it to die within minutes.",deadly,mild,soothing,annoying,Matched (3),3
+leukemia,-1.097963,.1438029,-.31665069,-4.2865329,-2.0527489,240,"The doctor informed the patient that they had LEUKEMIA, which would require immediate treatment.",blood cancer,pneumonia,diabetes,hypertension,Matched (3),1
+leukemia,-1.097963,.1438029,-.31665069,-4.2865329,-2.0527489,240,"Despite the PLAINNESS of the dress, it had a certain elegance that captivated everyone.",simplicity,extravagance,colorfulness,intricacy,Matched (3),2
+leukemia,-1.097963,.1438029,-.31665069,-4.2865329,-2.0527489,240,"LEUKEMIA is a type of illness that affects the blood and bone marrow, often requiring complex treatment.",blood cancer,influenza,bronchitis,migraine,Matched (3),3
+leukemia,-1.097963,.1438029,-.31665069,-4.2865329,-2.0527489,240,"Research teams are tirelessly working to find a cure for LEUKEMIA, a devastating illness.",blood cancer,arthritis,eczema,asthma,Matched (3),4
+leukemia,-1.097963,.1438029,-.31665069,-4.2865329,-2.0527489,240,"The artist's work was known for its PLAINNESS, focusing on the subject without any distractions.",simplicity,vibrancy,detail,richness,Matched (3),5
+leukemia,-1.097963,.1438029,-.31665069,-4.2865329,-2.0527489,240,The PLAINNESS of the room made it feel cold and uninviting.,simplicity,brightness,complexity,warmth,Matched (3),6
+lonesomeness,-4.5216379,-1.353377,-.1599735,-1.475298,-1.621555,401,"After moving to a new city, Sarah often felt an overwhelming sense of LONESOMENESS.",solitude,excitement,adventure,contentment,Matched (3),1
+lonesomeness,-4.5216379,-1.353377,-.1599735,-1.475298,-1.621555,401,The old cabin in the woods was filled with an air of LONESOMENESS after the family moved out.,isolation,chaos,warmth,noise,Matched (3),2
+lonesomeness,-4.5216379,-1.353377,-.1599735,-1.475298,-1.621555,401,"During the long winter nights, the shepherd kept the wolves at bay but couldn't escape the LONESOMENESS.",seclusion,boredom,excitement,companionship,Matched (3),3
+loquacious,,,,,,,Scientists are studying the impact of climate change on the population of KRILL in Antarctic waters.,talkative,quiet,shy,polite,Using only (2),1
+loquacious,,,,,,,Scientists are studying the impact of climate change on the population of KRILL in Antarctic waters.,talkative,sleepy,stubborn,hungry,Using only (2),2
+loquacious,,,,,,,Scientists are studying the impact of climate change on the population of KRILL in Antarctic waters.,talkative,silent,hesitant,indifferent,Using only (2),3
+maintain,1.227385,-.53492612,-.2935206,1.317452,1.158138,244,"To win the championship, the team had to MAINTAIN their lead throughout the game.",uphold,lose,change,sell,Matched (3),1
+maintain,1.227385,-.53492612,-.2935206,1.317452,1.158138,244,The engineer assured that they would MAINTAIN the bridge to prevent any accidents.,preserve,neglect,destroy,construct,Matched (3),2
+maintain,1.227385,-.53492612,-.2935206,1.317452,1.158138,244,It is crucial to MAINTAIN a healthy diet to ensure long-term fitness.,sustain,disrupt,initiate,conclude,Matched (3),3
+maser,-2.793901,1.335739,-.33237791,-2.6734631,-2.029043,10,Researchers have utilized a MASER to improve the accuracy of space communication systems.,device,protocol,field,experiment,Matched (3),1
+maser,-2.793901,1.335739,-.33237791,-2.6734631,-2.029043,10,The MASER technology has greatly advanced our ability to amplify microwave signals with high precision.,amplifier,recorder,generator,filter,Matched (3),2
+maser,-2.793901,1.335739,-.33237791,-2.6734631,-2.029043,10,The development of the MASER in the 1950s was a significant milestone in the field of quantum electronics.,invention,obstacle,trend,hypothesis,Matched (3),3
+maser,-2.793901,1.335739,-.33237791,-2.6734631,-2.029043,10,The soldier's GALLANTRY on the battlefield earned him a prestigious medal.,bravery,clumsiness,hesitation,fear,Matched (3),4
+maser,-2.793901,1.335739,-.33237791,-2.6734631,-2.029043,10,The knight's tale was a story of GALLANTRY and nobility.,heroism,deception,recklessness,weakness,Matched (3),5
+maser,-2.793901,1.335739,-.33237791,-2.6734631,-2.029043,10,Her GALLANTRY in facing the difficult situation was admired by everyone in the community.,courage,confusion,frustration,uncertainty,Matched (3),6
+mediator,-1.3964241,.1506812,-.30773479,-.77936947,-1.792081,231,"During the heated debate, the MEDIATOR helped both sides come to a compromise.",arbitrator,contender,observer,speaker,Matched (3),1
+mediator,-1.3964241,.1506812,-.30773479,-.77936947,-1.792081,231,The corporation hired an outside MEDIATOR to manage the labor disputes and ensure a peaceful resolution.,intermediary,employee,contractor,supervisor,Matched (3),2
+mediator,-1.3964241,.1506812,-.30773479,-.77936947,-1.792081,231,A skilled MEDIATOR can often resolve conflicts more effectively than a confrontational approach.,negotiator,competitor,participant,judge,Matched (3),3
+misspent,-3.0503819,.126407,-.2478219,-2.6606159,-1.4000469,212,"The funds provided for the charity were unfortunately MISSPENT, leading to a shortage of resources.",wasted,amplified,generated,preserved,Matched (3),1
+misspent,-3.0503819,.126407,-.2478219,-2.6606159,-1.4000469,212,She felt that her talents were MISSPENT in a job that didn't challenge her creatively.,squandered,developed,nurtured,respected,Matched (3),2
+misspent,-3.0503819,.126407,-.2478219,-2.6606159,-1.4000469,212,The politician’s term in office was criticized as being MISSPENT due to lack of significant policies.,misused,celebrated,shortened,extended,Matched (3),3
+mousy,-2.6498239,-1.435003,.89446092,-1.124418,-.3272649,13,"Despite her talent, Lily often felt overshadowed as her more outspoken friends considered her too MOUSY to make an impact.",timid,confident,creative,loud,Matched (3),1
+mousy,-2.6498239,-1.435003,.89446092,-1.124418,-.3272649,13,Jake's MOUSY demeanor in the meetings led his colleagues to underestimate his capabilities.,shy,assertive,aggressive,talkative,Matched (3),2
+mousy,-2.6498239,-1.435003,.89446092,-1.124418,-.3272649,13,Her MOUSY appearance at the party made it easy for her to blend into the background.,quiet,fashionable,vibrant,eccentric,Matched (3),3
+mulishness,-4.8308201,-1.0847991,10.08358,-1.616565,.66707069,404,The project's failure was attributed to the manager's MULE stubborn refusal to consider alternative strategies.,stubbornness,kindness,expertise,compassion,Matched (3),1
+mulishness,-4.8308201,-1.0847991,10.08358,-1.616565,.66707069,404,Her MULE refusal to compromise strained relationships within the team.,intransigence,generosity,cooperation,unpredictability,Matched (3),2
+mulishness,-4.8308201,-1.0847991,10.08358,-1.616565,.66707069,404,"Despite numerous logical arguments, her MULE stubbornly refused to change its path due to its MULE-LIKE MANNER.",obstinacy,curiosity,flexibility,enthusiasm,Matched (3),3
+newsgroup,-3.0395761,1.509396,-.1684902,-3.9820509,-.53684568,313,Alex spent hours each day reading posts and engaging in discussions on the NEWGROUP related to his favorite hobby.,forum,article,journal,newsletter,Matched (3),1
+newsgroup,-3.0395761,1.509396,-.1684902,-3.9820509,-.53684568,313,"In order to get updates from experts in the field, Maria subscribed to a popular NEWGROUP.",forum,magazine,broadcast,blog,Matched (3),2
+newsgroup,-3.0395761,1.509396,-.1684902,-3.9820509,-.53684568,313,The company's marketing team decided to promote their latest product on a technology NEWGROUP.,forum,report,presentation,broadcast,Matched (3),3
+opulence,-2.3709819,.075805902,-.27608979,-1.408294,-1.456144,222,"Despite the city's economic challenges, the downtown area was a beacon of OPULENCE and prosperity.",wealth,poverty,decay,neutrality,Matched (3),1
+opulence,-2.3709819,.075805902,-.27608979,-1.408294,-1.456144,222,The palace's grandeur and OPULENCE were apparent in every gilded room and ornate hall.,luxury,simplicity,cleanliness,modesty,Matched (3),2
+opulence,-2.3709819,.075805902,-.27608979,-1.408294,-1.456144,222,"The OPULENCE of the banquet left all the guests in awe, with its lavish decorations and sumptuous food.",extravagance,scarcity,harmony,enthusiasm,Matched (3),3
+oxbow,-3.584527,.34657359,3.9361429,-4.413981,-.77629578,3,"An OXBOW lake was formed when the river changed its course, leaving behind an isolated, curved body of water.",loop,spring,tributary,fjord,Matched (3),1
+oxbow,-3.584527,.34657359,3.9361429,-4.413981,-.77629578,3,"The river carved out an OXBOW over centuries, creating a unique u-shaped bend.",meander,cliff,waterfall,delta,Matched (3),2
+oxbow,-3.584527,.34657359,3.9361429,-4.413981,-.77629578,3,"The dramatic OXBOW in the river was a favorite spot for photographers, capturing the natural beauty of its sweeping curves.",bend,ridge,island,plateau,Matched (3),3
+oxygenate,-3.4121029,.76135862,-.3207399,-3.1469271,-2.2305739,300,,,,,,Master only (1),1
+paranoid,-.83828598,.0072689001,.3343578,-1.888139,-.88213903,243,His PARANOID behavior caused him to install multiple security cameras around his home.,distrustful,calm,content,exuberant,Matched (3),1
+paranoid,-.83828598,.0072689001,.3343578,-1.888139,-.88213903,243,"Because he was PARANOID, he always thought his coworkers were talking behind his back.",suspicious,carefree,confident,joyful,Matched (3),2
+paranoid,-.83828598,.0072689001,.3343578,-1.888139,-.88213903,243,"The doctor assured her that there was nothing to worry about, but she remained PARANOID.",fearful,relaxed,cheerful,indifferent,Matched (3),3
+perkiness,-3.8704841,-1.010304,2.112375,-3.2778621,-.82512653,303,"Thanks to the coffee, Mark's PERKINESS returned, making him much more productive at work.",energy,exhaustion,boredom,irritation,Matched (3),1
+perkiness,-3.8704841,-1.010304,2.112375,-3.2778621,-.82512653,303,"Despite the early hour, Sarah's PERKINESS brightened everyone's spirits at the morning meeting.",cheerfulness,sadness,laziness,anger,Matched (3),2
+perkiness,-3.8704841,-1.010304,2.112375,-3.2778621,-.82512653,303,"The puppy's PERKINESS was contagious, causing everyone at the park to smile.",liveliness,lethargy,confusion,aggression,Matched (3),3
+phosphorescent,-2.686379,2.129241,-.3576476,-1.421068,-2.32178,410,The artist used a PHOSPHORESCENT paint that made the artwork visible even in complete darkness.,luminous,opaque,matte,dull,Matched (3),1
+phosphorescent,-2.686379,2.129241,-.3576476,-1.421068,-2.32178,410,The jellyfish glowed with a PHOSPHORESCENT light that illuminated the dark ocean.,glowing,dim,flickering,dark,Matched (3),2
+phosphorescent,-2.686379,2.129241,-.3576476,-1.421068,-2.32178,410,The PHOSPHORESCENT markings on the insect's body made it easily identifiable during night-time field research.,radiant,subdued,shadowy,bleak,Matched (3),3
+plainness,-3.040781,-.1642835,11.12313,-2.5562191,-.2049838,314,,,,,,Master only (1),1
+predictor,-1.421664,.088023998,-.27627951,-2.082128,-.7265473,333,Analysts believe that consumer confidence is a reliable PREDICTOR of spending habits.,gauge,segment,measure,driver,Matched (3),1
+predictor,-1.421664,.088023998,-.27627951,-2.082128,-.7265473,333,The results of this study are seen as a strong PREDICTOR of future economic trends.,indicator,component,participant,outcome,Matched (3),2
+predictor,-1.421664,.088023998,-.27627951,-2.082128,-.7265473,333,The scientist emphasized that the gene could be a critical PREDICTOR of the disease.,sign,cause,treatment,factor,Matched (3),3
+prior,.88622171,-1.584538,-.098242998,1.053866,-.36258131,43,She had no PRIOR experience in the field but quickly learned the necessary skills.,earlier,significant,formal,urgent,Matched (3),1
+prior,.88622171,-1.584538,-.098242998,1.053866,-.36258131,43,He had a PRIOR engagement and could not attend the meeting.,previous,special,casual,tentative,Matched (3),2
+prior,.88622171,-1.584538,-.098242998,1.053866,-.36258131,43,The regulations require that any changes be approved by the committee PRIOR to implementation.,before,along,regarding,despite,Matched (3),3
+privy,-1.381842,-1.287394,-.17536791,-.98187321,-.1097499,34,She was not PRVY to the confidential information discussed in the meeting.,aware,opposed,capable,reliant,Matched (3),1
+privy,-1.381842,-1.287394,-.17536791,-.98187321,-.1097499,34,"As a trusted advisor, he was PRVY to many personal secrets of the royal family.",confided,close,indifferent,responsible,Matched (3),2
+privy,-1.381842,-1.287394,-.17536791,-.98187321,-.1097499,34,Only senior members of the team are PRVY to the details of the new project.,informed,assigned,interested,prejudiced,Matched (3),3
+proportionate,-1.646377,1.445199,-.3325581,.27366021,-.44431701,433,The amount of water used should be PROPORTIONATE to the number of plants in the garden.,corresponding,excessive,minimal,random,Matched (3),1
+proportionate,-1.646377,1.445199,-.3325581,.27366021,-.44431701,433,Her salary increase was PROPORTIONATE to her contribution to the project.,equivalent,irrelevant,minor,unexpected,Matched (3),2
+proportionate,-1.646377,1.445199,-.3325581,.27366021,-.44431701,433,The punishment should be PROPORTIONATE to the crime to ensure fairness.,commensurate,unrelated,unjust,heavy,Matched (3),3
+protrusion,-2.84198,.47545919,-.31331891,-3.8400431,-.86186528,413,The rock had a small PROTRUSION that tripped several hikers.,bulge,indentation,groove,crack,Matched (3),1
+protrusion,-2.84198,.47545919,-.31331891,-3.8400431,-.86186528,413,"Due to the PROTRUSION on the wall, hanging the painting perfectly flat was a challenge.",bump,hole,mark,artwork,Matched (3),2
+protrusion,-2.84198,.47545919,-.31331891,-3.8400431,-.86186528,413,The PROTRUSION on the surface of the table made it difficult to write smoothly.,lump,depression,stain,design,Matched (3),3
+qualified,.42407101,.075604998,.96425962,.33706129,1.049781,344,Only those with at least five years of experience are considered QUALIFIED for this senior position.,eligible,eager,relieved,busy,Matched (3),1
+qualified,.42407101,.075604998,.96425962,.33706129,1.049781,344,"The surgeon was widely regarded as one of the most QUALIFIED in the hospital, specializing in rare procedures.",skilled,tired,confused,curious,Matched (3),2
+qualified,.42407101,.075604998,.96425962,.33706129,1.049781,344,"After years of study and practice, she finally felt QUALIFIED to lead the complex project.",competent,interested,anxious,puzzled,Matched (3),3
+quibble,-2.0304689,-.88050032,-.26396489,-1.0137841,-.43154579,123,"During the meeting, John tended to QUIBBLE over minor details instead of focusing on the main issue.",bicker,agree,laugh,comply,Matched (3),1
+quibble,-2.0304689,-.88050032,-.26396489,-1.0137841,-.43154579,123,We shouldn't QUIBBLE about the cost when the overall quality is what really matters in the project.,argue,celebrate,predict,hesitate,Matched (3),2
+quibble,-2.0304689,-.88050032,-.26396489,-1.0137841,-.43154579,123,The lawyer's tendency to QUIBBLE over insignificant points annoyed the judge and the jury.,nitpick,accept,applaud,abandon,Matched (3),3
+ravishing,-2.368639,-.090618499,.3565619,-1.276878,-.67593253,323,"Her performance as Juliet was RAVISHING, leaving the audience in awe.",enchanting,disappointing,ordinary,lengthy,Matched (3),1
+ravishing,-2.368639,-.090618499,.3565619,-1.276878,-.67593253,323,The countryside view was so RAVISHING that we stopped frequently to take pictures.,breathtaking,dull,confusing,temporary,Matched (3),2
+ravishing,-2.368639,-.090618499,.3565619,-1.276878,-.67593253,323,The bride looked absolutely RAVISHING in her elegant white gown.,stunning,plain,frugal,tiresome,Matched (3),3
+readership,-1.804208,.4270142,.31258231,-2.4449971,-1.973892,430,Her CAREFREE attitude towards life often made her the center of attention at gatherings.,subscribers,printers,editors,revenue,Matched (3),1
+readership,-1.804208,.4270142,.31258231,-2.4449971,-1.973892,430,Her CAREFREE attitude towards life often made her the center of attention at gatherings.,followers,articles,contributors,format,Matched (3),2
+readership,-1.804208,.4270142,.31258231,-2.4449971,-1.973892,430,Her CAREFREE attitude towards life often made her the center of attention at gatherings.,audience,staff,budget,equipment,Matched (3),3
+reassert,-2.339967,-.2306108,-.29090121,-.56720769,-2.0211029,220,"After the initial confusion, the leader quickly moved to REASSERT his authority over the team.",reaffirm,question,enhance,diminish,Matched (3),1
+reassert,-2.339967,-.2306108,-.29090121,-.56720769,-2.0211029,220,"In her closing argument, she aimed to REASSERT the main points to ensure the jury understood her stance.",emphasize,neglect,confuse,decorate,Matched (3),2
+reassert,-2.339967,-.2306108,-.29090121,-.56720769,-2.0211029,220,The company had to REASSERT its commitment to sustainability after facing severe public criticism.,reiterate,ignore,resolve,modify,Matched (3),3
+reparation,-2.445926,.13727389,-.1043145,-2.0322931,.1304138,424,The company committed to REPARATION for the harm caused by its harmful pollution over the years.,restitution,disruption,celebration,introduction,Matched (3),1
+reparation,-2.445926,.13727389,-.1043145,-2.0322931,.1304138,424,"After the extensive damage caused by the hurricane, the government promised financial REPARATION to the affected communities.",compensation,negligence,appointment,ceremony,Matched (3),2
+reparation,-2.445926,.13727389,-.1043145,-2.0322931,.1304138,424,"As part of the peace treaty, the aggressor nation agreed to make significant REPARATION to the countries it had invaded.",amends,decoration,exclusions,maneuvers,Matched (3),3
+residency,-1.0924129,.297961,-.1147114,-1.484846,-.80103987,343,He completed a two-year artist RESIDENCY that allowed him to work on his painting without financial worries.,fellowship,hiatus,trip,job,Matched (3),1
+residency,-1.0924129,.297961,-.1147114,-1.484846,-.80103987,343,Her RESIDENCY at the university enabled her to conduct independent research.,tenure,journey,break,employment,Matched (3),2
+residency,-1.0924129,.297961,-.1147114,-1.484846,-.80103987,343,"After graduating from medical school, she began her RESIDENCY at a major hospital in Boston.",training,vacation,seminar,excursion,Matched (3),3
+respiratory,-.3473022,1.51974,-.1570998,-1.827666,-1.921657,440,The pollution in the city has adverse effects on RESPIRATORY health.,breathing,vision,skin,muscular,Matched (3),1
+respiratory,-.3473022,1.51974,-.1570998,-1.827666,-1.921657,440,"As part of the physical exam, the nurse checked the patient's RESPIRATORY rate.",breathing,heart,blood,bone,Matched (3),2
+respiratory,-.3473022,1.51974,-.1570998,-1.827666,-1.921657,440,The doctor diagnosed the patient with a severe RESPIRATORY infection.,breathing,digestive,circulatory,skeletal,Matched (3),3
+revealer,-3.548661,-.21713629,.34346351,-3.526083,-.29340589,203,The magician amazed the audience by being the REVEALER of the secret behind the trick.,discloser,participant,observer,contestant,Matched (3),1
+revealer,-3.548661,-.21713629,.34346351,-3.526083,-.29340589,203,The archaeologist was thrilled to be the REVEALER of the ancient tomb's hidden treasures.,unveiler,guard,explorer,visitor,Matched (3),2
+revealer,-3.548661,-.21713629,.34346351,-3.526083,-.29340589,203,"In her speech, the whistleblower became the REVEALER of the company's fraudulent activities.",exposer,announcer,defender,admirer,Matched (3),3
+samarium,-4.881928,.65956962,-.3002333,-4.672986,-2.054909,200,The scientists discovered that SAMARIUM could be used to create more powerful magnets.,rare-earth metal,tool,sample,method,Matched (3),1
+samarium,-4.881928,.65956962,-.3002333,-4.672986,-2.054909,200,"Due to its capacity to absorb neutrons, SAMARIUM is often utilized in control rods for nuclear reactors.",material,design,structure,calculation,Matched (3),2
+samarium,-4.881928,.65956962,-.3002333,-4.672986,-2.054909,200,"After the completion of the nuclear reactor, the engineers analyzed the role of SAMARIUM in the reactor's efficiency.",element,device,experiment,formula,Matched (3),3
+sandstone,-1.5469379,.2602098,-.31058109,-2.054074,-1.921051,330,,,,,,Master only (1),1
+scald,-2.6992359,-1.525347,1.29459,-2.331425,.80656302,14,The nurse warned the patient that the extremely hot compress might SCALD his skin.,blister,soothe,cleanse,soften,Matched (3),1
+scald,-2.6992359,-1.525347,1.29459,-2.331425,.80656302,14,"Be careful when pouring the boiling water, or you might SCALD yourself.",burn,injure,annoy,splash,Matched (3),2
+scald,-2.6992359,-1.525347,1.29459,-2.331425,.80656302,14,The chef quickly learned that it was easy to SCALD the milk if he wasn't attentive.,overheat,stir,cool,smell,Matched (3),3
+screenwriting,-3.3355429,.0088336999,-.26634029,-3.0004599,-.78850579,403,His passion for SCREENWRITING began when he watched his first classic film and imagined writing his own someday.,scriptwriting,acting,painting,sculpting,Matched (3),1
+screenwriting,-3.3355429,.0088336999,-.26634029,-3.0004599,-.78850579,403,"SCREENWRITING requires a unique set of skills, different from those needed for writing novels or short stories.",scriptwriting,cooking,gardening,decorating,Matched (3),2
+screenwriting,-3.3355429,.0088336999,-.26634029,-3.0004599,-.78850579,403,Sarah decided to take a course in SCREENWRITING to enhance her ability to create captivating movie scripts.,scriptwriting,drawing,singing,dancing,Matched (3),3
+scrubwoman,-4.7836251,1.176652,-.30636829,-1.54872,-1.224812,402,The SCRUBWOMAN worked diligently to ensure that the office floors were spotless by morning.,cleaner,secretary,manager,designer,Matched (3),1
+scrubwoman,-4.7836251,1.176652,-.30636829,-1.54872,-1.224812,402,The company's new SCRUBWOMAN was very efficient at handling the nightly cleaning duties.,custodian,technician,analyst,operator,Matched (3),2
+scrubwoman,-4.7836251,1.176652,-.30636829,-1.54872,-1.224812,402,"As the SCRUBWOMAN went about her tasks, she silently hummed a cheerful tune.",janitor,accountant,supervisor,receptionist,Matched (3),3
+seer,-2.3000319,-2.234185,5.6484151,-1.226426,-.32464051,23,Legends spoke of a SEER who could reveal the hidden truths of the universe.,visionary,warrior,scholar,merchant,Matched (3),1
+seer,-2.3000319,-2.234185,5.6484151,-1.226426,-.32464051,23,The SEER was consulted to predict the outcome of the king's battle plan.,prophet,soldier,leader,artist,Matched (3),2
+seer,-2.3000319,-2.234185,5.6484151,-1.226426,-.32464051,23,The villagers sought guidance from the SEER before making important decisions.,oracle,farmer,captain,musician,Matched (3),3
+sexist,-1.278107,-.62240058,-.0820399,-2.145349,-.92341328,132,Her colleagues accused her of being SEXIST after she made derogatory comments about men's abilities.,prejudiced,thoughtful,curious,humble,Matched (3),1
+sexist,-1.278107,-.62240058,-.0820399,-2.145349,-.92341328,132,The legislation aimed to address SEXIST practices in the workplace.,biased,innovative,popular,routine,Matched (3),2
+sexist,-1.278107,-.62240058,-.0820399,-2.145349,-.92341328,132,The manager's remarks about female employees were considered SEXIST by the entire office.,discriminatory,complimentary,encouraging,indifferent,Matched (3),3
+shallows,-2.393662,-.66908282,-.23383801,-1.003582,-.1288913,224,The marine biologist studied the ecosystems in the SHALLOWS near the shore.,shallows,cliffs,trenches,fields,Matched (3),1
+shallows,-2.393662,-.66908282,-.23383801,-1.003582,-.1288913,224,She carefully navigated her boat through the SHALLOWS to avoid getting stuck.,shallows,open sea,whirlpool,current,Matched (3),2
+shallows,-2.393662,-.66908282,-.23383801,-1.003582,-.1288913,224,The children enjoyed playing in the SHALLOWS by the lake where the water was only ankle-deep.,shallows,depths,rapids,waves,Matched (3),3
+shiftless,-2.5975051,-.1079961,-.2794365,-.3383114,-1.748387,311,The manager noticed that Tom's SHIFTLESS attitude was affecting the team's productivity.,unmotivated,hardworking,relaxed,confident,Matched (3),1
+shiftless,-2.5975051,-.1079961,-.2794365,-.3383114,-1.748387,311,"Despite having numerous opportunities, Mark remained SHIFTLESS and never sought employment.",lazy,ambitious,nervous,patient,Matched (3),2
+shiftless,-2.5975051,-.1079961,-.2794365,-.3383114,-1.748387,311,Many saw Andrea as SHIFTLESS because she often avoided completing her tasks.,idle,diligent,irritated,curious,Matched (3),3
+shilling,-3.122968,-1.072482,2.026552,-.4054395,.1145832,214,,,,,,Master only (1),1
+siege,-.54198372,-1.78505,1.2399991,-.71689749,-1.067807,42,"During the SIEGE, the defenders tried to negotiate terms of surrender with the besieging army.",blockade,festival,expedition,reconstruction,Matched (3),1
+siege,-.54198372,-1.78505,1.2399991,-.71689749,-1.067807,42,"The ancient city was under SIEGE for months, with enemy forces surrounding it completely.",blockade,vacation,appointment,restoration,Matched (3),2
+siege,-.54198372,-1.78505,1.2399991,-.71689749,-1.067807,42,"The castle endured a long SIEGE, with supplies dwindling and morale sinking.",blockade,celebration,journey,refurbishment,Matched (3),3
+slutty,-3.1229911,-.69215631,-.2303949,-2.252095,-.038118701,114,,,,,,Master only (1),1
+smoggy,-2.999346,-.157974,-.26824731,-2.363709,-2.0556059,110,"The air in the city was very SMOGGY, making it difficult to see the skyline.",hazy,clear,breezy,humid,Matched (3),1
+smoggy,-2.999346,-.157974,-.26824731,-2.363709,-2.0556059,110,"Because the weather was SMOGGY, many people decided to stay indoors.",polluted,sunny,windy,calm,Matched (3),2
+smoggy,-2.999346,-.157974,-.26824731,-2.363709,-2.0556059,110,The SMOGGY conditions in the industrial area were a cause for health concerns.,foggy,pristine,arid,tranquil,Matched (3),3
+snakeroot,-4.5115299,-1.387576,-.028939201,-1.792186,-.0078958999,304,Botanists are studying the properties of SNAKEROOT to determine its potential medicinal benefits.,root,experiment,result,discovery,Matched (3),1
+snakeroot,-4.5115299,-1.387576,-.028939201,-1.792186,-.0078958999,304,The herbalist recommended using SNAKEROOT to treat the patient's inflammatory condition.,plant,medicine,ritual,diet,Matched (3),2
+snakeroot,-4.5115299,-1.387576,-.028939201,-1.792186,-.0078958999,304,Early settlers believed that SNAKEROOT could help cure snake bites and other venomous encounters.,herb,charm,spell,prayer,Matched (3),3
+statehood,-1.691946,.076111801,-.30695841,-2.2228019,-1.797176,331,,,,,,Master only (1),1
+supposition,-1.699127,.65526181,-.3182517,-.84053129,-.2066811,434,,,,,,Master only (1),1
+surveillance,-.38584459,1.111349,-.3610445,-.4838253,-1.722721,441,"Due to the high level of SURVEILLANCE, the spies found it difficult to carry out their mission.",scrutiny,freedom,tension,silence,Matched (3),1
+surveillance,-.38584459,1.111349,-.3610445,-.4838253,-1.722721,441,The government used advanced technology for SURVEILLANCE to keep an eye on potential threats.,observation,communication,negotiation,legislation,Matched (3),2
+surveillance,-.38584459,1.111349,-.3610445,-.4838253,-1.722721,441,The store increased its SECURITY after a series of thefts were reported.,monitoring,management,inventory,staffing,Matched (3),3
+tabernacle,-1.9897389,.8930887,-.3459444,-2.477046,-.4957917,423,,,,,,Master only (1),1
+thoroughly,.44315171,.1368884,-.3255941,1.278632,-.57954389,443,The inspector checked the equipment THOROUGHLY to ensure safety compliance.,comprehensively,hastily,intermittently,selectively,Matched (3),1
+thoroughly,.44315171,.1368884,-.3255941,1.278632,-.57954389,443,She reviewed her essay THOROUGHLY before submitting it to her professor.,meticulously,briefly,casually,occasionally,Matched (3),2
+thoroughly,.44315171,.1368884,-.3255941,1.278632,-.57954389,443,"After cleaning the house THOROUGHLY, she was exhausted but satisfied with the result.",completely,partially,randomly,quickly,Matched (3),3
+tote,-1.6799819,-2.0980661,7.4764848,-2.800555,-.80139607,33,She decided to TOTE all the groceries in a reusable bag instead of using plastic bags.,carry,cook,sell,store,Matched (3),1
+tote,-1.6799819,-2.0980661,7.4764848,-2.800555,-.80139607,33,The volunteers will TOTE chairs and tables to the park for the community event.,haul,borrow,forget,design,Matched (3),2
+tote,-1.6799819,-2.0980661,7.4764848,-2.800555,-.80139607,33,"During the hike, they had to TOTE their supplies across rough terrain.",transport,consume,leave,inspect,Matched (3),3
+trait,-.40775961,-1.716779,1.508086,-.34008011,-1.588469,41,John's kindness is a TRAIT that everyone admires.,characteristic,habit,detail,manner,Matched (3),1
+trait,-.40775961,-1.716779,1.508086,-.34008011,-1.588469,41,Creativity is a TRAIT commonly found among artists and innovators.,quality,role,activity,action,Matched (3),2
+trait,-.40775961,-1.716779,1.508086,-.34008011,-1.588469,41,One important TRAIT of a successful leader is the ability to communicate effectively.,attribute,strategy,method,tool,Matched (3),3
+treble,-2.01633,-1.142134,-.1815047,-2.3757031,.99892628,124,The audio engineer boosted the TREBLE to make the vocals clearer in the mix.,high-pitched,volume,balance,harmony,Matched (3),1
+treble,-2.01633,-1.142134,-.1815047,-2.3757031,.99892628,124,"When the TREBLE was too high, the sound became sharp and piercing.",treble,distortion,duration,tone,Matched (3),2
+treble,-2.01633,-1.142134,-.1815047,-2.3757031,.99892628,124,The musician adjusted the settings to increase the TREBLE for a brighter sound.,high-frequency,bass,tempo,rhythm,Matched (3),3
+trine,-4.7801962,-.17243171,-.2784304,-3.144105,-1.69938,1,"Astrologers believe that when a TRINE occurs, it often signifies a period of harmony and balance.",conjunction,conflict,separation,growth,Matched (3),1
+trine,-4.7801962,-.17243171,-.2784304,-3.144105,-1.69938,1,"The ancient manuscript detailed how every 20 years, a rare TRINE of planets would be visible in the night sky.",alignment,explosion,discovery,mystery,Matched (3),2
+trine,-4.7801962,-.17243171,-.2784304,-3.144105,-1.69938,1,"During the TRINE, the three celestial bodies formed a perfect triangle, mesmerizing everyone at the observatory.",configuration,alignment,disturbance,chaos,Matched (3),3
+tsar,-2.026294,-1.858747,.89326721,-3.3477709,-1.817312,21,The angry dog began to GNASH its teeth at the approaching stranger.,grind,wag,lick,purr,Matched (3),1
+tsar,-2.026294,-1.858747,.89326721,-3.3477709,-1.817312,21,She would often GNASH her teeth in her sleep due to stress.,grind,hum,breathe,talk,Matched (3),2
+tsar,-2.026294,-1.858747,.89326721,-3.3477709,-1.817312,21,"During the reign of the TSAR, the nation saw significant expansion and the establishment of a strong centralized government.",monarch,general,citizen,traveler,Matched (3),3
+tsar,-2.026294,-1.858747,.89326721,-3.3477709,-1.817312,21,"The lavish lifestyle of the TSAR was often at odds with the poverty of the peasantry, leading to growing unrest among the populace.",ruler,poet,artist,soldier,Matched (3),4
+tsar,-2.026294,-1.858747,.89326721,-3.3477709,-1.817312,21,"During the intense argument, he could only GNASH his teeth in frustration.",grind,cheer,speak,relax,Matched (3),5
+tsar,-2.026294,-1.858747,.89326721,-3.3477709,-1.817312,21,"The TSAR's rule was marked by both opulence and autocracy, greatly influencing the history of Russia.",emperor,civilian,merchant,farmer,Matched (3),6
+twain,-1.344256,.54951268,-.2780019,-.1242228,-1.531244,31,"The river divided the land into TWAIN sections, each with its own distinct ecosystem.",two,upstream,large,ancient,Matched (3),1
+twain,-1.344256,.54951268,-.2780019,-.1242228,-1.531244,31,"The treasure map indicated that the path would split in TWAIN, leading explorers in separate directions.",two,danger,mystery,wilderness,Matched (3),2
+twain,-1.344256,.54951268,-.2780019,-.1242228,-1.531244,31,"The poet famously wrote about the day when the lovers would be together again, no longer separated by TWAIN roads.",two,winding,narrow,dusty,Matched (3),3
+uncivilized,-1.973217,1.2863261,-.142992,-.94818372,-1.708593,421,"The villagers considered the new settlers’ behavior to be quite UNCIVILIZED, lacking any form of etiquette or decency.",rude,sophisticated,mundane,helpful,Matched (3),1
+uncivilized,-1.973217,1.2863261,-.142992,-.94818372,-1.708593,421,The early settlers faced harsh conditions and had to resort to what some would call UNCIVILIZED methods to survive in the new land.,savage,ethical,cautious,pleasant,Matched (3),2
+uncivilized,-1.973217,1.2863261,-.142992,-.94818372,-1.708593,421,"The explorers encountered an UNCIVILIZED tribe in the dense jungle, one that had never had contact with the outside world.",barbaric,modern,tidy,friendly,Matched (3),3
+untimely,-1.853285,-.1344692,-.2843869,-.1199215,-.1359382,234,The CEO's UNTIMELY resignation left the company in disarray.,premature,celebrated,prolonged,notorious,Matched (3),1
+untimely,-1.853285,-.1344692,-.2843869,-.1199215,-.1359382,234,Her UNTIMELY death shocked the entire community.,premature,predictable,averted,harmonious,Matched (3),2
+untimely,-1.853285,-.1344692,-.2843869,-.1199215,-.1359382,234,The UNTIMELY arrival of the storm disrupted our outdoor event.,premature,welcome,sluggish,awkward,Matched (3),3
+uppercut,-2.6174669,.020571699,-.29922429,-3.5175231,-1.594432,211,The boxer surprised his opponent with a quick UPPERCUT to the chin.,punch,block,jump,kick,Matched (3),1
+uppercut,-2.6174669,.020571699,-.29922429,-3.5175231,-1.594432,211,An effective UPPERCUT can often lead to a knockout in a boxing match.,blow,stumble,dodge,feint,Matched (3),2
+uppercut,-2.6174669,.020571699,-.29922429,-3.5175231,-1.594432,211,His training focused on perfecting the UPPERCUT for better performance in the ring.,strike,jog,clap,bow,Matched (3),3
+urbane,-2.3231399,-1.097759,.1370928,-.77313328,-1.99813,120,The diplomat's URBANE manner made negotiations smoother and more pleasant.,sophisticated,rough,awkward,simplistic,Matched (3),1
+urbane,-2.3231399,-1.097759,.1370928,-.77313328,-1.99813,120,"Despite the chaotic environment, she managed to maintain an URBANE demeanor that impressed everyone.",cultured,clumsy,naive,brash,Matched (3),2
+urbane,-2.3231399,-1.097759,.1370928,-.77313328,-1.99813,120,"His URBANE conversation charmed the guests at the dinner party, making him the center of attention.",refined,dull,blunt,inexperienced,Matched (3),3
+vodka,-.93656182,-.99949259,-.26617149,-2.0647719,-1.936461,40,,,,,,Matched (3),1
+vodka,-.93656182,-.99949259,-.26617149,-2.0647719,-1.936461,40,,,,,,Matched (3),2
+vodka,-.93656182,-.99949259,-.26617149,-2.0647719,-1.936461,40,,,,,,Matched (3),3
+warden,-.79612571,-1.150146,.62585622,-1.023279,-1.1244251,142,The WARDEN of the wildlife reserve was pleased to see an increase in the population of endangered species.,guardian,predator,tourist,scientist,Matched (3),1
+warden,-.79612571,-1.150146,.62585622,-1.023279,-1.1244251,142,"Due to its porous nature, SANDSTONE is often used in buildings where intricate designs are required.",sedimentary rock,limestone,basalt,schist,Matched (3),2
+warden,-.79612571,-1.150146,.62585622,-1.023279,-1.1244251,142,The PRISON'S WARDEN announced new policies to improve inmate rehabilitation programs.,superintendent,prisoner,visitor,officer,Matched (3),3
+warden,-.79612571,-1.150146,.62585622,-1.023279,-1.1244251,142,"After months of careful planning, the WARDEN successfully implemented a new security system.",administrator,guard,janitor,technician,Matched (3),4
+warden,-.79612571,-1.150146,.62585622,-1.023279,-1.1244251,142,"The ancient cliff dwellings were composed of soft, easily eroded SANDSTONE.",sedimentary rock,granite,marble,quartz,Matched (3),5
+warden,-.79612571,-1.150146,.62585622,-1.023279,-1.1244251,142,The geologist explained that the layers within the SANDSTONE were formed over millions of years by sediment deposition.,sedimentary rock,igneous rock,metamorphic rock,pumice,Matched (3),6
+womenfolk,-2.9336181,.66396731,-.32431629,-2.129437,-2.1497171,310,"The festival was eagerly anticipated by the entire village, especially the WOMENFOLK who had prepared special dishes and decorations.",ladies,children,elders,merchants,Matched (3),1
+womenfolk,-2.9336181,.66396731,-.32431629,-2.129437,-2.1497171,310,"During the gathering, the men discussed politics while the WOMENFOLK shared family stories and recipes.",ladies,youngsters,scholars,musicians,Matched (3),2
+womenfolk,-2.9336181,.66396731,-.32431629,-2.129437,-2.1497171,310,"In many traditional communities, the responsibility of preserving cultural heritage often falls to the WOMENFOLK.",ladies,leaders,traders,warriors,Matched (3),3
+wormhole,-2.118541,-.16423281,-.2941111,-2.258543,-1.735162,221,Scientists believe that a WORMHOLE could allow faster-than-light travel by creating a shortcut through space and time.,tunnel,black hole,barrier,illusion,Matched (3),1
+wormhole,-2.118541,-.16423281,-.2941111,-2.258543,-1.735162,221,The concept of a WORMHOLE is intriguing because it suggests a direct route connecting two distant points in the universe.,gateway,obstacle,theory,sensation,Matched (3),2
+wormhole,-2.118541,-.16423281,-.2941111,-2.258543,-1.735162,221,"In the movie, the astronauts enter a WORMHOLE to explore a distant galaxy, hoping it will lead to habitable planets.",passage,crater,device,adventure,Matched (3),3

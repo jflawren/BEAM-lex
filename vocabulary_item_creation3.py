@@ -6,7 +6,7 @@ import time
 from config import api_key
 
 # Load your API key from an environment variable or secret management service
-openai.api_key = api_key = api_key
+openai.api_key = api_key
 
 # Define relative paths for the CSV files
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -26,11 +26,61 @@ new_target_words = new_words_df['Target_Word'].tolist()  # Assuming the column n
 # Function to generate new assessment items
 def generate_assessment_item(word):
     instructions = (
-        "You are a multiple-choice vocabulary test designer. For every Target_Word in the new_words.csv file I give you, please write three different multiple-choice items for that word. "
-        "First, list the Target_Word you are using. Then, create a Stem. A Stem is a sentence that uses the target word in an example sentence where the Target_Word is capitalized in that sentence. "
-        "Then, create the Correct_Response. This is a synonym for the target word that could replace it in the Stem. "
+        "You are a multiple-choice vocabulary test designer. For every Target_Word I give you, please write one multiple-choice item for that word. "
+        "First, list the Target_Word you are using. Many words will have multiple meanings. You will try to design the item for the most common meaning of the word. "
+        "Then, create a Stem. A Stem is a sentence that uses the Target_Word in an example sentence where the Target_Word is capitalized in that sentence. "
+        "Then, create the Correct_Response. This is a synonym for the Target_Word that could replace it in the Stem. "
         "Create three other responses (Response_B, Response_C, Response_D) that should not be synonyms but should be able to fit grammatically in the Stem. "
         "In total you will create: Target_Word, Stem, Correct_Response, Response_B, Response_C, Response_D."
+        "\n\nHere are some examples of good items:\n"
+        "Target_Word: cockeyed\n"
+        "Stem: The artist created a COCKEYED portrait that left the audience both puzzled and intrigued.\n"
+        "Correct_Response: bizarre\n"
+        "Response_B: beautiful\n"
+        "Response_C: conventional\n"
+        "Response_D: realistic\n"
+        "\n"
+        "Target_Word: heckle\n"
+        "Stem: During the comedian's performance, some audience members began to HECKLE him, disrupting the show.\n"
+        "Correct_Response: taunt\n"
+        "Response_B: applaud\n"
+        "Response_C: ignore\n"
+        "Response_D: praise\n"
+        "\n"
+        "Target_Word: predictor\n"
+        "Stem: The scientist emphasized that the gene could be a critical PREDICTOR of the disease.\n"
+        "Correct_Response: sign\n"
+        "Response_B: cause\n"
+        "Response_C: treatment\n"
+        "Response_D: factor\n"
+        "\n"
+        "Target_Word: cock\n"
+        "Stem: The rooster began to COCK its head curiously at the noise coming from the barn.\n"
+        "Correct_Response: tilt\n"
+        "Response_B: hide\n"
+        "Response_C: boast\n"
+        "Response_D: perch\n"
+        "\n"
+        "Target_Word: fairlead\n"
+        "Stem: To reduce the wear on the lines, we passed the ropes through the FAIRLEAD before securing them.\n"
+        "Correct_Response: guide\n"
+        "Response_B: knot\n"
+        "Response_C: sail\n"
+        "Response_D: harpoon\n"
+        "\n"
+        "Target_Word: quibble\n"
+        "Stem: The lawyer's tendency to QUIBBLE over insignificant points annoyed the judge and the jury.\n"
+        "Correct_Response: nitpick\n"
+        "Response_B: accept\n"
+        "Response_C: applaud\n"
+        "Response_D: abandon\n"
+        "\n"
+        "Target_Word: contour\n"
+        "Stem: The hiker's map showed every CONTOUR of the mountain terrain, making it easy to plan his route.\n"
+        "Correct_Response: outline\n"
+        "Response_B: peak\n"
+        "Response_C: forest\n"
+        "Response_D: rock\n"
     )
 
     prompt = f"{instructions}\n\nTarget_Word: {word}"
