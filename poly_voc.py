@@ -37,67 +37,20 @@ def generate_assessment_item(word):
     # Instructions for the model, including example items
     instructions = (
         "You are a multiple-choice vocabulary test designer. For every Target_Word I give you, please write one multiple-choice item for that word. "
-        "First, list the Target_Word you are using. Many words will have multiple meanings. You will try to design the item for the most common meaning of the word. "
+        "First, list the Target_Word you are using. Many words will have multiple meanings. If a word has multiple meanings, design the test to see if the student knows the secondary meaning. "
         "Then, create a Stem. A Stem is a sentence that uses the Target_Word in an example sentence where the Target_Word is capitalized in that sentence. "
         "Then, create the Correct_Response. This is a synonym for the Target_Word that could replace it in the Stem. "
-        "Create three other responses (Response_B, Response_C, Response_D) that should not be synonyms but should be able to fit grammatically in the Stem. "
+        "Next, create an incorrect response that is related to the most common meening of the target workd (Response_B)."
+        "Finally, create three other responses (Response_C, Response_D) that should not be synonyms but should be able to fit grammatically in the Stem. "
         "In total you will create: Target_Word, Stem, Correct_Response, Response_B, Response_C, Response_D."
-
-        "Keep sentence structures as simple as possible to express the intended meaning. "
-        "A number of simple sentences are often more accessible than a single more complex sentence."
-        "Avoid use of negatives and constructions utilizing not in the questions’ stems and options as they can cause confusion"
-        "When a fictional context is necessary (e.g., for a mathematics word problem), use a simple context that will be familiar"
-        "to as wide a range of students as possible. A school-based context will often be more accessible to ELLs than a home-based context."
         "\n\nHere are some examples of good items:\n"
-        "Target_Word: cockeyed\n"
-        "Stem: The artist created a COCKEYED portrait that left the audience both puzzled and intrigued.\n"
-        "Correct_Response: bizarre\n"
-        "Response_B: beautiful\n"
-        "Response_C: conventional\n"
-        "Response_D: realistic\n"
+        "Target_Word: chair\n"
+        "Stem: He was the CHAIR of the meeting.\n"
+        "Correct_Response: leader\n"
+        "Response_B: stool\n"
+        "Response_C: listener\n"
+        "Response_D: table\n"
         "\n"
-        "Target_Word: heckle\n"
-        "Stem: During the comedian's performance, some audience members began to HECKLE him, disrupting the show.\n"
-        "Correct_Response: taunt\n"
-        "Response_B: applaud\n"
-        "Response_C: ignore\n"
-        "Response_D: praise\n"
-        "\n"
-        "Target_Word: predictor\n"
-        "Stem: The scientist emphasized that the gene could be a critical PREDICTOR of the disease.\n"
-        "Correct_Response: sign\n"
-        "Response_B: cause\n"
-        "Response_C: treatment\n"
-        "Response_D: factor\n"
-        "\n"
-        "Target_Word: cock\n"
-        "Stem: The rooster began to COCK its head curiously at the noise coming from the barn.\n"
-        "Correct_Response: tilt\n"
-        "Response_B: hide\n"
-        "Response_C: boast\n"
-        "Response_D: perch\n"
-        "\n"
-        "Target_Word: fairlead\n"
-        "Stem: To reduce the wear on the lines, we passed the ropes through the FAIRLEAD before securing them.\n"
-        "Correct_Response: guide\n"
-        "Response_B: knot\n"
-        "Response_C: sail\n"
-        "Response_D: harpoon\n"
-        "\n"
-        "Target_Word: quibble\n"
-        "Stem: The lawyer's tendency to QUIBBLE over insignificant points annoyed the judge and the jury.\n"
-        "Correct_Response: nitpick\n"
-        "Response_B: accept\n"
-        "Response_C: applaud\n"
-        "Response_D: abandon\n"
-        "\n"
-        "Target_Word: contour\n"
-        "Stem: The hiker's map showed every CONTOUR of the mountain terrain, making it easy to plan his route.\n"
-        "Correct_Response: outline\n"
-        "Response_B: peak\n"
-        "Response_C: forest\n"
-        "Response_D: rock\n"
-    
     )
 
     # Construct the prompt for the API call
@@ -183,7 +136,7 @@ formatted_items_df = pd.DataFrame(
 )
 
 # Define the path for the output CSV file
-new_items_path = os.path.join(script_dir, 'new_assessment_items.csv')
+new_items_path = os.path.join(script_dir, 'new_poly_assessment_items.csv')
 
 # Save the new assessment items to a CSV file
 try:

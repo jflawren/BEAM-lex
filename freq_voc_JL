@@ -3,19 +3,38 @@ import openai  # For interacting with OpenAI's API
 import pandas as pd  # For data manipulation
 import os  # For file path operations
 import time  # For adding delays between API calls
+import datetime  # For adding the timestamp to the output file
 
 from config import api_key  # Import your API key securely
 
 # Set your OpenAI API key
 openai.api_key = api_key
 
-# Define the path for the CSV file containing new words
+# Define the path for the directory containing new words files
 script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory where the script is located
-new_words_path = os.path.join(script_dir, 'new_words.csv')  # Path to the new words file
+
+# Get the most recent file that starts with "new_words_3"
+def get_most_recent_file(dir_path, prefix):
+    # List all files in the directory
+    files = [f for f in os.listdir(dir_path) if f.startswith(prefix)]
+    if not files:
+        print(f"Error: No files found starting with '{prefix}'")
+        exit()
+    # Get the full paths of the files and sort them by modification time (most recent first)
+    files = sorted(
+        [os.path.join(dir_path, f) for f in files],
+        key=lambda x: os.path.getmtime(x),
+        reverse=True
+    )
+    return files[0]  # Return the most recent file
+
+# Use the most recent file that starts with "new_words_3"
+new_words_path = get_most_recent_file(script_dir, 'new_words_3')
 
 # Load the new words into a DataFrame
 try:
     new_words_df = pd.read_csv(new_words_path)
+    print(f"Loaded new words from: {new_words_path}")
 except FileNotFoundError as e:
     print(f"Error: {e}")
     exit()
@@ -26,7 +45,7 @@ if 'Target_Word' in new_words_df.columns:
 elif 'Word' in new_words_df.columns:
     new_target_words = new_words_df['Word'].dropna().tolist()
 else:
-    print("Error: 'Target_Word' or 'Word' column not found in new_words.csv")
+    print(f"Error: 'Target_Word' or 'Word' column not found in {new_words_path}")
     exit()
 
 # Function to generate a new assessment item for a given word
@@ -42,62 +61,7 @@ def generate_assessment_item(word):
         "Then, create the Correct_Response. This is a synonym for the Target_Word that could replace it in the Stem. "
         "Create three other responses (Response_B, Response_C, Response_D) that should not be synonyms but should be able to fit grammatically in the Stem. "
         "In total you will create: Target_Word, Stem, Correct_Response, Response_B, Response_C, Response_D."
-
-        "Keep sentence structures as simple as possible to express the intended meaning. "
-        "A number of simple sentences are often more accessible than a single more complex sentence."
-        "Avoid use of negatives and constructions utilizing not in the questions’ stems and options as they can cause confusion"
-        "When a fictional context is necessary (e.g., for a mathematics word problem), use a simple context that will be familiar"
-        "to as wide a range of students as possible. A school-based context will often be more accessible to ELLs than a home-based context."
-        "\n\nHere are some examples of good items:\n"
-        "Target_Word: cockeyed\n"
-        "Stem: The artist created a COCKEYED portrait that left the audience both puzzled and intrigued.\n"
-        "Correct_Response: bizarre\n"
-        "Response_B: beautiful\n"
-        "Response_C: conventional\n"
-        "Response_D: realistic\n"
-        "\n"
-        "Target_Word: heckle\n"
-        "Stem: During the comedian's performance, some audience members began to HECKLE him, disrupting the show.\n"
-        "Correct_Response: taunt\n"
-        "Response_B: applaud\n"
-        "Response_C: ignore\n"
-        "Response_D: praise\n"
-        "\n"
-        "Target_Word: predictor\n"
-        "Stem: The scientist emphasized that the gene could be a critical PREDICTOR of the disease.\n"
-        "Correct_Response: sign\n"
-        "Response_B: cause\n"
-        "Response_C: treatment\n"
-        "Response_D: factor\n"
-        "\n"
-        "Target_Word: cock\n"
-        "Stem: The rooster began to COCK its head curiously at the noise coming from the barn.\n"
-        "Correct_Response: tilt\n"
-        "Response_B: hide\n"
-        "Response_C: boast\n"
-        "Response_D: perch\n"
-        "\n"
-        "Target_Word: fairlead\n"
-        "Stem: To reduce the wear on the lines, we passed the ropes through the FAIRLEAD before securing them.\n"
-        "Correct_Response: guide\n"
-        "Response_B: knot\n"
-        "Response_C: sail\n"
-        "Response_D: harpoon\n"
-        "\n"
-        "Target_Word: quibble\n"
-        "Stem: The lawyer's tendency to QUIBBLE over insignificant points annoyed the judge and the jury.\n"
-        "Correct_Response: nitpick\n"
-        "Response_B: accept\n"
-        "Response_C: applaud\n"
-        "Response_D: abandon\n"
-        "\n"
-        "Target_Word: contour\n"
-        "Stem: The hiker's map showed every CONTOUR of the mountain terrain, making it easy to plan his route.\n"
-        "Correct_Response: outline\n"
-        "Response_B: peak\n"
-        "Response_C: forest\n"
-        "Response_D: rock\n"
-    
+        # Additional instructions and examples can go here...
     )
 
     # Construct the prompt for the API call
@@ -106,7 +70,7 @@ def generate_assessment_item(word):
     try:
         # Make the API call to OpenAI's GPT-4 model
         response = openai.ChatCompletion.create(
-            model="gpt-4o",  # Use the GPT-4 model
+            model="gpt-4o",
             messages=[
                 {"role": "system", "content": "You are an expert at creating vocabulary assessment items."},
                 {"role": "user", "content": prompt}
@@ -182,8 +146,11 @@ formatted_items_df = pd.DataFrame(
     columns=['Target Word', 'Stem', 'Correct_Response', 'Response_B', 'Response_C', 'Response_D']
 )
 
-# Define the path for the output CSV file
-new_items_path = os.path.join(script_dir, 'new_assessment_items.csv')
+# Create a timestamp string in the format YYYYMMDD_HHMMSS
+timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+
+# Define the path for the output CSV file, appending the date and time
+new_items_path = os.path.join(script_dir, f'new_assessment_items_{timestamp}.csv')
 
 # Save the new assessment items to a CSV file
 try:
