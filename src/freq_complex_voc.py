@@ -194,12 +194,14 @@ def generate_assessments(strata_type):
         strata_name = 'quintiles' if strata_type == '5' else 'terciles'
         print(f"Using {strata_name} word file: {word_file}")
 
-        # Load the words
+        # Load the words with all metrics
         words_df = pd.read_csv(word_file)
         if 'Target_Word' in words_df.columns:
             new_target_words = words_df['Target_Word'].dropna().tolist()
         elif 'Word' in words_df.columns:
             new_target_words = words_df['Word'].dropna().tolist()
+            # Rename 'Word' to 'Target_Word' for consistency
+            words_df = words_df.rename(columns={'Word': 'Target_Word'})
         else:
             raise ValueError(f"Error: 'Target_Word' or 'Word' column not found in the {strata_name} file")
 
@@ -255,17 +257,33 @@ def generate_assessments(strata_type):
                 print("Generated content:")
                 print(item['Generated Item'])
 
-        # Create DataFrame and save
+        # Create DataFrame from formatted items
         formatted_items_df = pd.DataFrame(
             formatted_items,
             columns=['Target Word', 'Stem', 'Correct_Response', 'Response_B', 'Response_C', 'Response_D']
         )
 
+        # Merge with the original words_df to include all metrics
+        merged_df = pd.merge(
+            formatted_items_df,
+            words_df,
+            how='left',
+            left_on='Target Word',
+            right_on='Target_Word'
+        )
+
+        # Drop duplicate Target_Word column if it exists
+        if 'Target_Word' in merged_df.columns:
+            merged_df = merged_df.drop(columns='Target_Word')
+
+        # Save to CSV
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        output_dir = setup_output_directory()
         output_file = os.path.join(output_dir, 
                                 f'assessment_items_{strata_name}_{timestamp}.csv')
         
-        formatted_items_df.to_csv(output_file, index=False, encoding='utf-8')
+        merged_df.to_csv(output_file, index=False, encoding='utf-8')
+        print(f"Assessment items with metrics saved to: {output_file}")
         return output_file
 
     except Exception as e:
