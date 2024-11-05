@@ -1,35 +1,15 @@
 # Import necessary libraries
-import openai  # For interacting with OpenAI's API
-import pandas as pd  # For data manipulation
-import os  # For file path operations
-import time  # For adding delays between API calls
+import openai
+import pandas as pd
+import os
+import time 
+import csv 
+import glob
+from datetime import datetime
+from config import api_key
 
-from config import api_key  # Import your API key securely
-
-# Set your OpenAI API key
 openai.api_key = api_key
 
-# Define the path for the CSV file containing new words
-script_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory where the script is located
-new_words_path = os.path.join(script_dir, 'new_words.csv')  # Path to the new words file
-
-# Load the new words into a DataFrame
-try:
-    new_words_df = pd.read_csv(new_words_path)
-except FileNotFoundError as e:
-    print(f"Error: {e}")
-    exit()
-
-# Extract the list of target words from the DataFrame
-if 'Target_Word' in new_words_df.columns:
-    new_target_words = new_words_df['Target_Word'].dropna().tolist()
-elif 'Word' in new_words_df.columns:
-    new_target_words = new_words_df['Word'].dropna().tolist()
-else:
-    print("Error: 'Target_Word' or 'Word' column not found in new_words.csv")
-    exit()
-
-# Function to generate a new assessment item for a given word
 def generate_assessment_item(word):
     """
     Generates a multiple-choice vocabulary item for the given word using OpenAI's GPT-4 model.
@@ -126,17 +106,6 @@ def generate_assessment_item(word):
 # Generate new assessment items for each target word
 new_items = []  # List to hold the generated items
 
-for word in new_target_words:
-    print(f"Generating item for word: {word}")
-    item = generate_assessment_item(word)
-    if item:
-        # Clean up the generated text if necessary
-        item = item.replace('**', '')  # Remove any asterisks (e.g., markdown bold formatting)
-        new_items.append({
-            "Target Word": word,
-            "Generated Item": item
-        })
-    time.sleep(1)  # Add a delay to prevent hitting API rate limits
 
 # Process the generated items to extract structured data
 formatted_items = []  # List to hold the formatted assessment items
@@ -182,12 +151,136 @@ formatted_items_df = pd.DataFrame(
     columns=['Target Word', 'Stem', 'Correct_Response', 'Response_B', 'Response_C', 'Response_D']
 )
 
-# Define the path for the output CSV file
-new_items_path = os.path.join(script_dir, 'new_assessment_items.csv')
+def get_latest_word_file(strata_type):
+    """Get the most recent word file for the specified strata type."""
+    # Change the path construction to look at the same level as src
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    word_dir = os.path.join(base_dir, 'output', 'stratified_words', 
+                           'quintiles' if strata_type == '5' else 'terciles')
+    
+    # Add debug print
+    print(f"Checking directory: {word_dir}")
+    if not os.path.exists(word_dir):
+        os.makedirs(word_dir, exist_ok=True)
+        print(f"Created directory: {word_dir}")
+    
+    # Get list of files and sort by modification time
+    files = glob.glob(os.path.join(word_dir, f"stratified_words_*.csv"))
+    if not files:
+        raise FileNotFoundError(f"No word files found in {word_dir}")
+    
+    latest_file = max(files, key=os.path.getmtime)
+    
+    # Add debug code to check the DataFrame
+    # df = pd.read_csv(latest_file)
+    # print("Available columns:", df.columns.tolist())
+    # print("First few rows:")
+    # print(df.head())
+    
+    return latest_file
 
-# Save the new assessment items to a CSV file
-try:
-    formatted_items_df.to_csv(new_items_path, index=False, encoding='utf-8')
-    print(f"New assessment items saved to: {new_items_path}")
-except Exception as e:
-    print(f"Error saving file: {e}")
+def setup_output_directory():
+    """Create and return the path for assessment items output."""
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    output_dir = os.path.join(base_dir,'output', 'assessment_items')
+    os.makedirs(output_dir, exist_ok=True)
+    return output_dir
+
+def generate_assessments(strata_type):
+    """Generate assessment items for the specified strata type."""
+    try:
+        # Get the latest word file
+        word_file = get_latest_word_file(strata_type)
+        strata_name = 'quintiles' if strata_type == '5' else 'terciles'
+        print(f"Using {strata_name} word file: {word_file}")
+
+        # Load the words
+        words_df = pd.read_csv(word_file)
+        if 'Target_Word' in words_df.columns:
+            new_target_words = words_df['Target_Word'].dropna().tolist()
+        elif 'Word' in words_df.columns:
+            new_target_words = words_df['Word'].dropna().tolist()
+        else:
+            raise ValueError(f"Error: 'Target_Word' or 'Word' column not found in the {strata_name} file")
+
+        # Setup output directory
+        output_dir = setup_output_directory()
+        
+        # Generate items
+        new_items = []
+        for word in new_target_words:
+            print(f"Generating item for word: {word}")
+            item = generate_assessment_item(word)
+            if item:
+                item = item.replace('**', '')
+                new_items.append({
+                    "Target Word": word,
+                    "Generated Item": item
+                })
+            time.sleep(1)
+
+        # Process items
+        formatted_items = []
+        for item in new_items:
+            # Split the generated item into lines
+            lines = item['Generated Item'].split('\n')
+            target_word = ''
+            stem = ''
+            correct_response = ''
+            response_b = ''
+            response_c = ''
+            response_d = ''
+            
+            for line in lines:
+                if line.strip() == "":
+                    continue
+                line = line.strip()
+                if line.startswith('Target_Word:'):
+                    target_word = line.split('Target_Word:')[1].strip()
+                elif line.startswith('Stem:'):
+                    stem = line.split('Stem:')[1].strip()
+                elif line.startswith('Correct_Response:'):
+                    correct_response = line.split('Correct_Response:')[1].strip()
+                elif line.startswith('Response_B:'):
+                    response_b = line.split('Response_B:')[1].strip()
+                elif line.startswith('Response_C:'):
+                    response_c = line.split('Response_C:')[1].strip()
+                elif line.startswith('Response_D:'):
+                    response_d = line.split('Response_D:')[1].strip()
+            
+            if target_word and stem and correct_response and response_b and response_c and response_d:
+                formatted_items.append([target_word, stem, correct_response, response_b, response_c, response_d])
+            else:
+                print(f"Incomplete item for word: {item['Target Word']}")
+                print("Generated content:")
+                print(item['Generated Item'])
+
+        # Create DataFrame and save
+        formatted_items_df = pd.DataFrame(
+            formatted_items,
+            columns=['Target Word', 'Stem', 'Correct_Response', 'Response_B', 'Response_C', 'Response_D']
+        )
+
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        output_file = os.path.join(output_dir, 
+                                f'assessment_items_{strata_name}_{timestamp}.csv')
+        
+        formatted_items_df.to_csv(output_file, index=False, encoding='utf-8')
+        return output_file
+
+    except Exception as e:
+        print(f"Error generating {strata_name} assessments: {str(e)}")
+        raise
+
+def main():
+    """Legacy main function for backward compatibility"""
+    while True:
+        strata_type = input("Enter strata type (5 for quintiles, 3 for terciles): ").strip()
+        if strata_type in ['3', '5']:
+            break
+        print("Invalid input. Please enter '3' or '5'.")
+    
+    generate_assessments(strata_type)
+
+if __name__ == "__main__":
+    main()
