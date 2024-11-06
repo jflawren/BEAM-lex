@@ -97,5 +97,5 @@ python src/main.py --min-age 1 --max-age 2 --type basic --skip-sampling
    ```
 
 ## Configuration
-- Ensure your OpenAI API key is properly set up
+- Ensure your AI API key is properly set up
 - Check configuration files are in place (see `.gitignore` for required files)
