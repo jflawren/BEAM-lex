@@ -36,20 +36,23 @@ ROAR Vocabulary Assessment Generator is a sophisticated tool designed to create 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/roar-voc.git
+   git clone https://github.com/jflawren/roar-voc.git
    cd roar-voc
    ```
+   Or
 
-2. Install dependencies:
+   - Fetch and checkout update/josh if you have the repo.. to use this updated branch
+
+3. Install dependencies:
    ```bash
    poetry install
    ```
 
-3. Configure your environment:
+4. Configure your environment:
    ```bash
    Create config.py in src/ and add your API key
    ```
-4. Prepare data
+5. Prepare data
    - Create directory named data in root directory and add data files
      
 ## Usage
