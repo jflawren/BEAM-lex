@@ -3,9 +3,26 @@ import os
 import sys
 from datetime import datetime
 
-def run_pipeline(generation_type='basic', skip_sampling=False):
-    """Run the complete pipeline: sampling words and generating assessments"""
+def run_pipeline(generation_type='basic', skip_sampling=False, min_age_level=3, max_age_level=4):
+    """
+    Run the complete pipeline: sampling words and generating assessments
+    
+    Parameters:
+    - generation_type: Type of assessment generator ('basic', 'freq_complex', or 'poly')
+    - skip_sampling: Whether to skip the word sampling step
+    - min_age_level: Minimum education level (1-6)
+    - max_age_level: Maximum education level (1-6)
+    
+    Education levels:
+    1: Early childhood
+    2: Later childhood
+    3: Elementary
+    4: Middle school
+    5: High school
+    6: University
+    """
     print(f"Starting vocabulary assessment pipeline using {generation_type} generator...")
+    print(f"Age range: {min_age_level} to {max_age_level}")
     
     project_root = os.path.dirname(os.path.abspath(__file__))
     sys.path.append(os.path.join(project_root, 'src'))
@@ -28,7 +45,11 @@ def run_pipeline(generation_type='basic', skip_sampling=False):
             
             # Generate quintiles (5)
             print("\nProcessing quintiles (5)...")
-            quintiles_result = sampling.process_and_save_words('5')
+            quintiles_result = sampling.process_and_save_words(
+                '5', 
+                min_age_level=min_age_level, 
+                max_age_level=max_age_level
+            )
             if quintiles_result:
                 print("✓ Quintiles word sampling completed")
             else:
@@ -36,7 +57,11 @@ def run_pipeline(generation_type='basic', skip_sampling=False):
             
             # Generate terciles (3)
             print("\nProcessing terciles (3)...")
-            terciles_result = sampling.process_and_save_words('3')
+            terciles_result = sampling.process_and_save_words(
+                '3', 
+                min_age_level=min_age_level, 
+                max_age_level=max_age_level
+            )
             if terciles_result:
                 print("✓ Terciles word sampling completed")
             else:
@@ -75,9 +100,31 @@ def main():
     parser.add_argument('--skip-sampling',
                        action='store_true',
                        help='Skip the word sampling step and use existing word lists')
+    parser.add_argument('--min-age',
+                       type=int,
+                       choices=range(1, 7),
+                       default=3,
+                       help='Minimum education level (1: Early childhood, 2: Later childhood, '
+                            '3: Elementary, 4: Middle school, 5: High school, 6: University)')
+    parser.add_argument('--max-age',
+                       type=int,
+                       choices=range(1, 7),
+                       default=4,
+                       help='Maximum education level (1: Early childhood, 2: Later childhood, '
+                            '3: Elementary, 4: Middle school, 5: High school, 6: University)')
     
     args = parser.parse_args()
-    run_pipeline(args.type, args.skip_sampling)
+    
+    # Validate age range
+    if args.min_age > args.max_age:
+        parser.error("Minimum age level cannot be greater than maximum age level")
+    
+    run_pipeline(
+        args.type, 
+        args.skip_sampling,
+        min_age_level=args.min_age,
+        max_age_level=args.max_age
+    )
 
 if __name__ == "__main__":
     main()

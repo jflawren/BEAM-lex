@@ -11,6 +11,7 @@ import numpy as np
 import datetime
 import os
 import csv
+from better_profanity import profanity
 
 # Add error handling and debugging for CSV reading
 try:
@@ -75,6 +76,18 @@ df = df[df['aoamean'].notna()]
 df = df[df['complexity_awl'].notna()]
 
 #--------------------------------------------------------
+# Step 3b: Content Appropriateness Filtering
+#--------------------------------------------------------
+
+
+# Initialize the profanity filter
+profanity.load_censor_words()
+
+# Filter out inappropriate words
+df = df[~df['word'].apply(lambda x: profanity.contains_profanity(str(x)))]
+print(f"Retained {len(df)} words after content filtering")
+
+#--------------------------------------------------------
 # Step 4: Creating and Labeling AoA Quantiles
 #--------------------------------------------------------
 
@@ -98,13 +111,51 @@ df['quantile_aoamean_label'] = df['quantile_aoamean'].map(quantile_labels)
 # Step 5: Selecting Specific AoA Quantiles
 #--------------------------------------------------------
 
-# Keep words up to the 'High school' quantile (quantiles less than 5)
-df = df[df['quantile_aoamean'] < 5]
+# # Keep words up to the 'High school' quantile (quantiles less than 5)
+# df = df[df['quantile_aoamean'] < 5]
 
-# Drop words in the 'Early childhood' and 'Later childhood' quantiles
-df = df[~df['quantile_aoamean'].isin([1, 2])]
+# # Drop words in the 'Early childhood' and 'Later childhood' quantiles
+# df = df[~df['quantile_aoamean'].isin([1, 2])]
 
 # At this point, the dataset contains words learned between elementary and middle school ages.
+
+# Add this after the AoA Quantiles creation section
+def filter_by_age_range(df, min_level, max_level):
+    """
+    Filter dataframe by age/education level range.
+    
+    Parameters:
+    - df: DataFrame containing the data
+    - min_level: Minimum education level (1-6)
+    - max_level: Maximum education level (1-6)
+    
+    Education levels:
+    1: Early childhood
+    2: Later childhood
+    3: Elementary
+    4: Middle school
+    5: High school
+    6: University
+    """
+    # Validate input ranges
+    if not (1 <= min_level <= 6 and 1 <= max_level <= 6):
+        raise ValueError("Education levels must be between 1 and 6")
+    if min_level > max_level:
+        raise ValueError("Minimum level cannot be greater than maximum level")
+    
+    # Create a fresh copy of the dataframe
+    df_filtered = df.copy()
+    
+    # Filter the dataframe based on the specified range
+    df_filtered = df_filtered[
+        (df_filtered['quantile_aoamean'] >= min_level) & 
+        (df_filtered['quantile_aoamean'] <= max_level)
+    ]
+    
+    print(f"Selected words from {quantile_labels[min_level]} to {quantile_labels[max_level]}")
+    print(f"Retained {len(df_filtered)} words after age range filtering")
+    
+    return df_filtered
 
 #========================================================
 # Part 2: Stratified Sampling
@@ -223,9 +274,19 @@ df['target3'] = df.duplicated(subset='strata3', keep='first').apply(lambda x: 0 
 # Step 10: Exporting the Selected Words with Date and Time (No Slashes)
 #--------------------------------------------------------
 
-def process_and_save_words(strata_type='5'):
-    """Process and save stratified words."""
+def process_and_save_words(strata_type='5', min_age_level=3, max_age_level=4):
+    """
+    Process and save stratified words.
+    
+    Parameters:
+    - strata_type: '5' for quintiles or '3' for terciles
+    - min_age_level: Minimum education level (1-6)
+    - max_age_level: Maximum education level (1-6)
+    """
     global df  # Access the main dataframe
+    
+    # Filter by age range
+    df_aged = filter_by_age_range(df.copy(), min_age_level, max_age_level)
     
     # Create output directories if they don't exist
     output_dirs = {
@@ -238,20 +299,18 @@ def process_and_save_words(strata_type='5'):
 
     # Export the selected words based on strata_type
     if strata_type == '5':
-        # Create df_target5 with a clean copy
-        df_target = df[df['target5'] == 1].copy()
+        df_target = df_aged[df_aged['target5'] == 1].copy()
         df_target = df_target.rename(columns={'word': 'Target_Word'})
         
         date_time = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
-        filename = f"stratified_words_quintiles_{date_time}.csv"
+        filename = f"stratified_words_quintiles_{min_age_level}-{max_age_level}_{date_time}.csv"
         filepath = os.path.join(output_dirs['strata5'], filename)
     else:
-        # Create df_target3 with a clean copy
-        df_target = df[df['target3'] == 1].copy()
+        df_target = df_aged[df_aged['target3'] == 1].copy()
         df_target = df_target.rename(columns={'word': 'Target_Word'})
         
         date_time = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
-        filename = f"stratified_words_terciles_{date_time}.csv"
+        filename = f"stratified_words_terciles_{min_age_level}-{max_age_level}_{date_time}.csv"
         filepath = os.path.join(output_dirs['strata3'], filename)
 
     # Export the selected words and their features
