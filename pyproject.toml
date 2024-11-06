@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.10"
 pandas = "^2.2.2"
 openai = "0.28"
+better-profanity = "^0.7.0"
 
 
 [build-system]
