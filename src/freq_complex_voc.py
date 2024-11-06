@@ -1,4 +1,3 @@
-# Import necessary libraries
 import openai
 import pandas as pd
 import os
@@ -14,7 +13,6 @@ def generate_assessment_item(word):
     """
     Generates a multiple-choice vocabulary item for the given word using OpenAI's GPT-4 model.
     """
-    # Instructions for the model, including example items
     instructions = (
         "You are a multiple-choice vocabulary test designer. For every Target_Word I give you, please write one multiple-choice item for that word. "
         "First, list the Target_Word you are using. Many words will have multiple meanings. You will try to design the item for the most common meaning of the word. "
@@ -80,21 +78,18 @@ def generate_assessment_item(word):
     
     )
 
-    # Construct the prompt for the API call
     prompt = f"{instructions}\n\nTarget_Word: {word}"
 
     try:
-        # Make the API call to OpenAI's GPT-4 model
         response = openai.ChatCompletion.create(
             model="gpt-4o",  # Use the GPT-4 model
             messages=[
                 {"role": "system", "content": "You are an expert at creating vocabulary assessment items."},
                 {"role": "user", "content": prompt}
             ],
-            max_tokens=500,  # Maximum tokens allowed in the response
-            timeout=15  # Timeout in seconds for the API call
+            max_tokens=500,  
+            timeout=15  
         )
-        # Return the assistant's response text
         return response.choices[0].message['content'].strip()
     except openai.error.OpenAIError as e:
         print(f"Error generating assessment item for '{word}': {e}")
@@ -103,8 +98,7 @@ def generate_assessment_item(word):
         print(f"Unexpected error generating assessment item for '{word}': {e}")
         return None
 
-# Generate new assessment items for each target word
-new_items = []  # List to hold the generated items
+new_items = []  
 
 
 # Process the generated items to extract structured data
@@ -142,8 +136,8 @@ for item in new_items:
         formatted_items.append([target_word, stem, correct_response, response_b, response_c, response_d])
     else:
         print(f"Incomplete item for word: {item['Target Word']}")
-        print("Generated content:")
-        print(item['Generated Item'])
+        # print("Generated content:")
+        # print(item['Generated Item'])
 
 # Create a DataFrame from the formatted items
 formatted_items_df = pd.DataFrame(
@@ -280,7 +274,7 @@ def generate_assessments(strata_type):
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         output_dir = setup_output_directory()
         output_file = os.path.join(output_dir, 
-                                f'assessment_items_{strata_name}_{timestamp}.csv')
+                                f'complex_assessment_items_{strata_name}_{timestamp}.csv')
         
         merged_df.to_csv(output_file, index=False, encoding='utf-8')
         print(f"Assessment items with metrics saved to: {output_file}")

@@ -193,6 +193,7 @@ print(df['strata3'].value_counts())
 #--- For Groups of 5 ---#
 
 # Set seed for reproducibility
+
 np.random.seed(123456)
 
 # Create a random sorting variable
