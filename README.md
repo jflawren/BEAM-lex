@@ -1,13 +1,13 @@
 # ROAR Vocabulary Assessment Generator
 
-> An AI-powered tool for generating stratified vocabulary assessments using AI.
+> An AI-powered tool for generating stratified vocabulary assessments.
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Poetry](https://img.shields.io/badge/poetry-package-blueviolet)](https://python-poetry.org/)
 
 ## Overview
 
-ROAR Vocabulary Assessment Generator is a sophisticated tool designed to create high-quality vocabulary assessments by leveraging AI technology. The system:
+ROAR Vocabulary Assessment Generator is a sophisticated tool designed to create high-quality vocabulary assessments by using AI technology. The system:
 
 - 📊 Stratifies words using multiple dimensions (frequency, complexity, polysemy)
 - 🤖 Generates context-rich assessment items using AI
