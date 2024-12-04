@@ -45,31 +45,31 @@ python src/main.py --min-age [MIN] --max-age [MAX] --type [TYPE]
 #### Adjacent Age Groups
 ```bash
 # Early Childhood to Later Childhood (Ages 1-2)
-python src/main.py --min-age 1 --max-age 2 --type basic
+python src/main.py --min-age 1 --max-age 2 --type freq_complex
 
 # Later Childhood to Elementary (Ages 2-3)
-python src/main.py --min-age 2 --max-age 3 --type basic
+python src/main.py --min-age 2 --max-age 3 --type freq_complex
 
 # Elementary to Middle School (Ages 3-4)
-python src/main.py --min-age 3 --max-age 4 --type basic
+python src/main.py --min-age 3 --max-age 4 --type freq_complex
 
 # Middle School to High School (Ages 4-5)
-python src/main.py --min-age 4 --max-age 5 --type basic
+python src/main.py --min-age 4 --max-age 5 --type freq_complex
 
 # High School to University (Ages 5-6)
-python src/main.py --min-age 5 --max-age 6 --type basic
+python src/main.py --min-age 5 --max-age 6 --type freq_complex
 ```
 
 #### Broader Ranges
 ```bash
 # Early Childhood to Elementary (Ages 1-3)
-python src/main.py --min-age 1 --max-age 3 --type basic
+python src/main.py --min-age 1 --max-age 3 --type freq_complex
 
 # Elementary to High School (Ages 3-5)
-python src/main.py --min-age 3 --max-age 5 --type basic
+python src/main.py --min-age 3 --max-age 5 --type freq_complex
 
 # Middle School to University (Ages 4-6)
-python src/main.py --min-age 4 --max-age 6 --type basic
+python src/main.py --min-age 4 --max-age 6 --type freq_complex
 ```
 
 ### Assessment Types

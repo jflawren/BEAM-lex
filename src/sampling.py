@@ -137,12 +137,19 @@ def sample_from_strata(df, strata_type='3'):
                        for j in range(n_levels) 
                        for k in range(n_levels)]
     
+    # Initialize profanity filter
+    profanity.load_censor_words()
+    
     # Sample from each stratum
     for stratum in all_combinations:
         stratum_words = df[df[strata_col] == stratum]
-        if len(stratum_words) > 0:
-            sampled = stratum_words.sample(n=1)
+        # Filter out profane words
+        clean_words = stratum_words[~stratum_words['word'].apply(profanity.contains_profanity)]
+        if len(clean_words) > 0:
+            sampled = clean_words.sample(n=1)
             sampled_words.append(sampled)
+        elif len(stratum_words) > 0:
+            print(f"Warning: Stratum {stratum} only contains potentially inappropriate words")
     
     if sampled_words:
         result = pd.concat(sampled_words)
@@ -175,9 +182,10 @@ def process_and_save_words(strata_type='5', min_age_level=3, max_age_level=4):
                              'quintiles' if strata_type == '5' else 'terciles')
     os.makedirs(output_dir, exist_ok=True)
     
-    # Save results
+    # Save results with age range in filename
     timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
-    filepath = os.path.join(output_dir, f'stratified_words_{timestamp}.csv')
+    filename = f'stratified_words_age{min_age_level}-{max_age_level}_{timestamp}.csv'
+    filepath = os.path.join(output_dir, filename)
     
     df_target['Target_Word'] = df_target['word']
     columns_to_export = ['Target_Word', 'frequency_awl', 'complexity_awl', 

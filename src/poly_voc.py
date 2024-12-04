@@ -128,7 +128,11 @@ def generate_assessments(strata_type):
         word_file = get_latest_word_file(strata_type)
         strata_name = 'quintiles' if strata_type == '5' else 'terciles'
         print(f"Using {strata_name} word file: {word_file}")
-
+        
+        # Extract age range from the word file name
+        filename = os.path.basename(word_file)
+        age_range = filename.split('age')[1].split('_')[0]
+        
         # Load the words with all metrics
         words_df = pd.read_csv(word_file)
         if 'Target_Word' in words_df.columns:
@@ -172,10 +176,10 @@ def generate_assessments(strata_type):
         if 'Target_Word' in merged_df.columns:
             merged_df = merged_df.drop(columns='Target_Word')
 
-        # Save to CSV
+        # Save to CSV with consistent naming
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         output_file = os.path.join(output_dir, 
-                               f'poly_assessment_items_{strata_name}_{timestamp}.csv')
+                               f'poly_assessment_items_{strata_name}_age{age_range}_{timestamp}.csv')
         
         merged_df.to_csv(output_file, index=False, encoding='utf-8')
         print(f"Assessment items with metrics saved to: {output_file}")
