@@ -99,3 +99,16 @@ python src/main.py --min-age 1 --max-age 2 --type basic --skip-sampling
 ## Configuration
 - Ensure your AI API key is properly set up
 - Check configuration files are in place (see `.gitignore` for required files)
+
+
+quantile_aoamean |      Mean       Min       Max         N
+-----------------+----------------------------------------
+               1 |  6.220678      1.58      7.94      5192
+               2 |  8.916878  7.948151      9.76      5132
+               3 |   10.4994      9.77     11.17      5177
+               4 |  11.84753  11.17542      12.5      5167
+               5 |  13.24037     12.52        14      5230
+               6 |  15.34878  14.03796        21      5069
+-----------------+----------------------------------------
+           Total |  11.00142      1.58        21     30967
+----------------------------------------------------------
