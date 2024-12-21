@@ -94,6 +94,17 @@ def run_pipeline(generation_type='basic', skip_sampling=False, min_age_level=3, 
             generator('3')
             print("✓ Terciles assessment generation completed")
         
+        # Add correlation analysis
+        if not skip_sampling:
+            print("\n3. Analyzing correlations...")
+            from analysis import analyze_correlations
+            
+            if strata_type in ['5', 'both']:
+                correlations_5 = analyze_correlations('5', generation_type)
+            
+            if strata_type in ['3', 'both']:
+                correlations_3 = analyze_correlations('3', generation_type)
+        
         print("\n✓ Pipeline completed successfully!")
         print("\nOutput files can be found in:")
         print(f"- Word lists: {os.path.join(project_root, 'output', 'stratified_words')}")

@@ -132,7 +132,7 @@ def generate_assessments(strata_type, seed=None):
         # Extract seed and age range from the word file name
         filename = os.path.basename(word_file)
         seed_str = filename.split('seed')[1].split('_age')[0]
-        age_range = filename.split('_age')[1].split('_')[0]
+        age_range = filename.split('_age_')[1].split('_')[0]
         
         # Load the words with all metrics
         words_df = pd.read_csv(word_file)
@@ -164,6 +164,9 @@ def generate_assessments(strata_type, seed=None):
         # Process items and merge with metrics
         formatted_items_df = process_and_format_items(new_items)
         
+        # Add age range
+        formatted_items_df['age_range'] = age_range
+        
         # Merge with the original words_df to include all metrics
         merged_df = pd.merge(
             formatted_items_df,
@@ -172,7 +175,6 @@ def generate_assessments(strata_type, seed=None):
             left_on='Target Word',
             right_on='Target_Word'
         )
-
         # Drop duplicate Target_Word column if it exists
         if 'Target_Word' in merged_df.columns:
             merged_df = merged_df.drop(columns='Target_Word')
@@ -180,7 +182,7 @@ def generate_assessments(strata_type, seed=None):
         strata_col = f'strata{strata_type}'
         if strata_col in merged_df.columns:
             merged_df[strata_col] = merged_df[strata_col].astype(str).str.zfill(3)
-            
+
         # Save to CSV with seed before age in filename
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         output_file = os.path.join(output_dir, 

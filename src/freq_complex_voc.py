@@ -200,7 +200,7 @@ def generate_assessments(strata_type, seed=None):
         # Extract seed and age range from the word file name
         filename = os.path.basename(word_file)
         seed_str = filename.split('seed')[1].split('_age')[0]
-        age_range = filename.split('_age')[1].split('_')[0]
+        age_range = filename.split('_age_')[1].split('_')[0]
         
         # Load the words with all metrics
         words_df = pd.read_csv(word_file)
@@ -270,6 +270,9 @@ def generate_assessments(strata_type, seed=None):
             formatted_items,
             columns=['Target Word', 'Stem', 'Correct_Response', 'Response_B', 'Response_C', 'Response_D']
         )
+
+        # Add age range
+        formatted_items_df['age_range'] = age_range
 
         # Merge with the original words_df to include all metrics
         merged_df = pd.merge(

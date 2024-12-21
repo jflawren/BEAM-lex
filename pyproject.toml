@@ -10,6 +10,8 @@ python = "^3.10"
 pandas = "^2.2.2"
 openai = "0.28"
 better-profanity = "^0.7.0"
+seaborn = "^0.13.2"
+matplotlib = "^3.10.0"
 
 
 [build-system]
