@@ -189,7 +189,7 @@ def setup_output_directory():
     os.makedirs(output_dir, exist_ok=True)
     return output_dir
 
-def generate_assessments(strata_type):
+def generate_assessments(strata_type, seed=None):
     """Generate assessment items for the specified strata type."""
     try:
         # Get the latest word file
@@ -197,9 +197,10 @@ def generate_assessments(strata_type):
         strata_name = 'quintiles' if strata_type == '5' else 'terciles'
         print(f"Using {strata_name} word file: {word_file}")
         
-        # Extract age range from the word file name
+        # Extract seed and age range from the word file name
         filename = os.path.basename(word_file)
-        age_range = filename.split('age')[1].split('_')[0]
+        seed_str = filename.split('seed')[1].split('_age')[0]
+        age_range = filename.split('_age')[1].split('_')[0]
         
         # Load the words with all metrics
         words_df = pd.read_csv(word_file)
@@ -283,10 +284,10 @@ def generate_assessments(strata_type):
         if 'Target_Word' in merged_df.columns:
             merged_df = merged_df.drop(columns='Target_Word')
 
-        # Save to CSV with consistent naming
+        # Save to CSV with seed before age in filename
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         output_file = os.path.join(output_dir, 
-                               f'complex_assessment_items_{strata_name}_age{age_range}_{timestamp}.csv')
+                               f'freq_complex_assessment_items_seed{seed_str}_age{age_range}_{timestamp}.csv')
         
         merged_df.to_csv(output_file, index=False, encoding='utf-8')
         print(f"Assessment items with metrics saved to: {output_file}")

@@ -3,7 +3,7 @@ import os
 import sys
 from datetime import datetime
 
-def run_pipeline(generation_type='basic', skip_sampling=False, min_age_level=3, max_age_level=4):
+def run_pipeline(generation_type='basic', skip_sampling=False, min_age_level=3, max_age_level=4, strata_type='both'):
     """
     Run the complete pipeline: sampling words and generating assessments
     
@@ -12,6 +12,7 @@ def run_pipeline(generation_type='basic', skip_sampling=False, min_age_level=3, 
     - skip_sampling: Whether to skip the word sampling step
     - min_age_level: Minimum education level (1-6)
     - max_age_level: Maximum education level (1-6)
+    - strata_type: Type of stratification ('3', '5', or 'both')
     
     Education levels:
     1: Early childhood
@@ -23,6 +24,7 @@ def run_pipeline(generation_type='basic', skip_sampling=False, min_age_level=3, 
     """
     print(f"Starting vocabulary assessment pipeline using {generation_type} generator...")
     print(f"Age range: {min_age_level} to {max_age_level}")
+    print(f"Strata type: {strata_type}")
     
     project_root = os.path.dirname(os.path.abspath(__file__))
     sys.path.append(os.path.join(project_root, 'src'))
@@ -39,33 +41,41 @@ def run_pipeline(generation_type='basic', skip_sampling=False, min_age_level=3, 
     }
     
     try:
-        # Step 1: Run sampling to get stratified words for both types
+        # Generate a single seed for the entire run
+        seed = int(datetime.now().timestamp())
+        print(f"Using seed: {seed} for this run")
+        
+        # Step 1: Run sampling to get stratified words
         if not skip_sampling:
             print("\n1. Generating stratified word samples...")
             
-            # Generate quintiles (5)
-            print("\nProcessing quintiles (5)...")
-            quintiles_result = sampling.process_and_save_words(
-                '5', 
-                min_age_level=min_age_level, 
-                max_age_level=max_age_level
-            )
-            if quintiles_result:
-                print("✓ Quintiles word sampling completed")
-            else:
-                print("→ Skipping quintiles word sampling (using existing words)")
+            if strata_type in ['5', 'both']:
+                # Generate quintiles (5)
+                print("\nProcessing quintiles (5)...")
+                quintiles_result = sampling.process_and_save_words(
+                    '5', 
+                    min_age_level=min_age_level, 
+                    max_age_level=max_age_level,
+                    seed=seed
+                )
+                if quintiles_result[0]:  # Check first element of tuple
+                    print("✓ Quintiles word sampling completed")
+                else:
+                    print("→ Skipping quintiles word sampling (using existing words)")
             
-            # Generate terciles (3)
-            print("\nProcessing terciles (3)...")
-            terciles_result = sampling.process_and_save_words(
-                '3', 
-                min_age_level=min_age_level, 
-                max_age_level=max_age_level
-            )
-            if terciles_result:
-                print("✓ Terciles word sampling completed")
-            else:
-                print("→ Skipping terciles word sampling (using existing words)")
+            if strata_type in ['3', 'both']:
+                # Generate terciles (3)
+                print("\nProcessing terciles (3)...")
+                terciles_result = sampling.process_and_save_words(
+                    '3', 
+                    min_age_level=min_age_level, 
+                    max_age_level=max_age_level,
+                    seed=seed
+                )
+                if terciles_result[0]:  # Check first element of tuple
+                    print("✓ Terciles word sampling completed")
+                else:
+                    print("→ Skipping terciles word sampling (using existing words)")
         else:
             print("\n→ Skipping word sampling step...")
         
@@ -74,13 +84,15 @@ def run_pipeline(generation_type='basic', skip_sampling=False, min_age_level=3, 
         
         generator = generators[generation_type]
         
-        print("\nGenerating assessments for quintiles...")
-        generator('5')
-        print("✓ Quintiles assessment generation completed")
+        if strata_type in ['5', 'both']:
+            print("\nGenerating assessments for quintiles...")
+            generator('5')
+            print("✓ Quintiles assessment generation completed")
         
-        print("\nGenerating assessments for terciles...")
-        generator('3')
-        print("✓ Terciles assessment generation completed")
+        if strata_type in ['3', 'both']:
+            print("\nGenerating assessments for terciles...")
+            generator('3')
+            print("✓ Terciles assessment generation completed")
         
         print("\n✓ Pipeline completed successfully!")
         print("\nOutput files can be found in:")
@@ -112,6 +124,10 @@ def main():
                        default=4,
                        help='Maximum education level (1: Early childhood, 2: Later childhood, '
                             '3: Elementary, 4: Middle school, 5: High school, 6: University)')
+    parser.add_argument('--strata',
+                       choices=['3', '5', 'both'],
+                       default='both',
+                       help='Strata type (3: terciles, 5: quintiles, both: run both)')
     
     args = parser.parse_args()
     
@@ -123,7 +139,8 @@ def main():
         args.type, 
         args.skip_sampling,
         min_age_level=args.min_age,
-        max_age_level=args.max_age
+        max_age_level=args.max_age,
+        strata_type=args.strata
     )
 
 if __name__ == "__main__":

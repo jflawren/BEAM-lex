@@ -45,31 +45,31 @@ python src/main.py --min-age [MIN] --max-age [MAX] --type [TYPE]
 #### Adjacent Age Groups
 ```bash
 # Early Childhood to Later Childhood (Ages 1-2)
-python src/main.py --min-age 1 --max-age 2 --type freq_complex
+python src/main.py --min-age 1 --max-age 2 --type freq_complex --strata 3
 
 # Later Childhood to Elementary (Ages 2-3)
-python src/main.py --min-age 2 --max-age 3 --type freq_complex
+python src/main.py --min-age 2 --max-age 3 --type freq_complex --strata 3
 
 # Elementary to Middle School (Ages 3-4)
-python src/main.py --min-age 3 --max-age 4 --type freq_complex
+python src/main.py --min-age 3 --max-age 4 --type freq_complex --strata 3
 
 # Middle School to High School (Ages 4-5)
-python src/main.py --min-age 4 --max-age 5 --type freq_complex
+python src/main.py --min-age 4 --max-age 5 --type freq_complex --strata 3
 
 # High School to University (Ages 5-6)
-python src/main.py --min-age 5 --max-age 6 --type freq_complex
+python src/main.py --min-age 5 --max-age 6 --type freq_complex --strata 3
 ```
 
 #### Broader Ranges
 ```bash
 # Early Childhood to Elementary (Ages 1-3)
-python src/main.py --min-age 1 --max-age 3 --type freq_complex
+python src/main.py --min-age 1 --max-age 3 --type freq_complex --strata 3
 
 # Elementary to High School (Ages 3-5)
-python src/main.py --min-age 3 --max-age 5 --type freq_complex
+python src/main.py --min-age 3 --max-age 5 --type freq_complex --strata 3
 
 # Middle School to University (Ages 4-6)
-python src/main.py --min-age 4 --max-age 6 --type freq_complex
+python src/main.py --min-age 4 --max-age 6 --type freq_complex --strata 3
 ```
 
 ### Assessment Types
@@ -81,6 +81,15 @@ Replace `--type basic` with:
 - `--skip-sampling`: Use existing word lists instead of generating new ones
 ```bash
 python src/main.py --min-age 1 --max-age 2 --type basic --skip-sampling
+```
+### Strata Selection
+- `--strata`: Choose stratification type
+  - `3`: Terciles only (3-level stratification)
+  - `5`: Quintiles only (5-level stratification)
+  - `both`: Generate both types (default)
+
+```bash
+python src/main.py --min-age 3 --max-age 4 --type basic --strata 3
 ```
 
 ## Installation
@@ -101,14 +110,15 @@ python src/main.py --min-age 1 --max-age 2 --type basic --skip-sampling
 - Check configuration files are in place (see `.gitignore` for required files)
 
 
-quantile_aoamean |      Mean       Min       Max         N
------------------+----------------------------------------
-               1 |  6.220678      1.58      7.94      5192
-               2 |  8.916878  7.948151      9.76      5132
-               3 |   10.4994      9.77     11.17      5177
-               4 |  11.84753  11.17542      12.5      5167
-               5 |  13.24037     12.52        14      5230
-               6 |  15.34878  14.03796        21      5069
------------------+----------------------------------------
-           Total |  11.00142      1.58        21     30967
-----------------------------------------------------------
+## Age of Acquisition Distribution
+
+| Quantile (AoA Mean) |   Mean   |   Min    |   Max    |    N    |
+|:-------------------|:--------:|:--------:|:--------:|:-------:|
+| 1                  | 6.22068  | 1.58000  | 7.94000  | 5,192   |
+| 2                  | 8.91688  | 7.94815  | 9.76000  | 5,132   |
+| 3                  | 10.49940 | 9.77000  | 11.17000 | 5,177   |
+| 4                  | 11.84753 | 11.17542 | 12.50000 | 5,167   |
+| 5                  | 13.24037 | 12.52000 | 14.00000 | 5,230   |
+| 6                  | 15.34878 | 14.03796 | 21.00000 | 5,069   |
+|-------------------|----------|----------|----------|---------|
+| Total             | 11.00142 | 1.58000  | 21.00000 | 30,967  |

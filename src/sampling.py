@@ -123,9 +123,10 @@ def create_strata_combinations(df, strata_type='3'):
 # Step 4: Sample Words
 #--------------------------------------------------------
 
-def sample_from_strata(df, strata_type='3'):
+def sample_from_strata(df, strata_type='3', seed=None):
     """Sample one word from each stratum."""
-    np.random.seed(42)  # For reproducibility
+    if seed is not None:
+        np.random.seed(seed)  # Set the random seed if provided
     
     sampled_words = []
     strata_col = f'strata{strata_type}'
@@ -162,7 +163,7 @@ def sample_from_strata(df, strata_type='3'):
 # Step 5: Process and Save
 #--------------------------------------------------------
 
-def process_and_save_words(strata_type='5', min_age_level=3, max_age_level=4):
+def process_and_save_words(strata_type='5', min_age_level=3, max_age_level=4, seed=None):
     """Process and save stratified words."""
     # Filter by age range
     df_aged = filter_by_age_range(df.copy(), min_age_level, max_age_level)
@@ -171,7 +172,7 @@ def process_and_save_words(strata_type='5', min_age_level=3, max_age_level=4):
     df_aged = create_strata_combinations(df_aged, strata_type)
     
     # Sample words
-    df_target = sample_from_strata(df_aged, strata_type)
+    df_target = sample_from_strata(df_aged, strata_type, seed=seed)
     
     if len(df_target) == 0:
         print("No words sampled!")
@@ -184,7 +185,7 @@ def process_and_save_words(strata_type='5', min_age_level=3, max_age_level=4):
     
     # Save results with age range in filename
     timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
-    filename = f'stratified_words_age{min_age_level}-{max_age_level}_{timestamp}.csv'
+    filename = f'stratified_words_seed{seed}_age_{min_age_level}-{max_age_level}_{timestamp}.csv'
     filepath = os.path.join(output_dir, filename)
     
     df_target['Target_Word'] = df_target['word']
