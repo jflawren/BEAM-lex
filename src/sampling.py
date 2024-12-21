@@ -196,6 +196,11 @@ def process_and_save_words(strata_type='5', min_age_level=3, max_age_level=4, se
     df_target[columns_to_export].to_csv(filepath, index=False)
     print(f"\nExported words to: {filepath}")
     
+    # Ensure strata column maintains leading zeros
+    strata_col = f'strata{strata_type}'
+    if strata_col in df_target.columns:
+        df_target[strata_col] = df_target[strata_col].astype(str).str.zfill(3)
+    
     return filepath
 
 if __name__ == "__main__":

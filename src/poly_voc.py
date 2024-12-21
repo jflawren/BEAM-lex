@@ -177,6 +177,10 @@ def generate_assessments(strata_type, seed=None):
         if 'Target_Word' in merged_df.columns:
             merged_df = merged_df.drop(columns='Target_Word')
 
+        strata_col = f'strata{strata_type}'
+        if strata_col in merged_df.columns:
+            merged_df[strata_col] = merged_df[strata_col].astype(str).str.zfill(3)
+            
         # Save to CSV with seed before age in filename
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         output_file = os.path.join(output_dir, 
