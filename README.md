@@ -82,6 +82,30 @@ Replace `--type basic` with:
 ```bash
 python src/main.py --min-age 1 --max-age 2 --type basic --skip-sampling
 ```
+- `--custom-words`: Generate assessments for specific words
+  - Accepts comma-separated words or a text file path
+  - Works with all assessment types (basic, freq_complex, poly)
+  - Always uses quintile (5-level) stratification
+
+Note: When using custom words:
+- Age level options (--min-age, --max-age) are ignored
+- Strata type is always set to quintiles
+- Only generates one assessment (no terciles/quintiles option)
+
+### Example Usage
+Using comma-separated words
+```bash
+python src/main.py --type basic --custom-words "apple,banana,orange,eat"
+```
+Using a text file (one word per line)
+```bash
+python src/main.py --type freq_complex --custom-words "words.txt"
+```
+With different assessment types
+```bash
+python src/main.py --type poly --custom-words "run,jump,play,swim"
+```
+
 ### Strata Selection
 - `--strata`: Choose stratification type
   - `3`: Terciles only (3-level stratification)
@@ -91,7 +115,8 @@ python src/main.py --min-age 1 --max-age 2 --type basic --skip-sampling
 ```bash
 python src/main.py --min-age 3 --max-age 4 --type basic --strata 3
 ```
-python src/main.py --type freq_complex --strata 3 --custom-words "apple,banana,orange,eat"
+
+
 ## Installation
 
 1. Ensure you have Python 3.10+ installed
