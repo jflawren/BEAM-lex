@@ -91,7 +91,7 @@ python src/main.py --min-age 1 --max-age 2 --type basic --skip-sampling
 ```bash
 python src/main.py --min-age 3 --max-age 4 --type basic --strata 3
 ```
-
+python src/main.py --type freq_complex --strata 3 --custom-words "apple,banana,orange,eat"
 ## Installation
 
 1. Ensure you have Python 3.10+ installed

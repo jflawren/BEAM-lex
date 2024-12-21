@@ -1,0 +1,4 @@
+Target Word,Stem,Correct_Response,Response_B,Response_C,Response_D,age_range,frequency_awl,complexity_awl,proximity_awl,diversity_awl,polysemy_awl
+Jesus,"During the Christmas play, the children reenacted the birth of JESUS, highlighting his role in the nativity story.",Christ,Joseph,Moses,Noah,,-2.7584481,-1.2399129,-0.017778015,-1.7746284,-0.095318921
+kiss,"The couple shared a KISS under the stars, feeling grateful for the moment.",peck,glance,walk,hug,,0.65463078,-2.0545237,2.2586291,-1.1290334,1.1016577
+name,The teacher asked each student to write their NAME at the top of the test paper.,designation,grade,date,score,,2.9923022,-2.0840869,6.9855971,0.91922712,2.2103324

@@ -155,32 +155,25 @@ formatted_items_df = pd.DataFrame(
 )
 
 def get_latest_word_file(strata_type):
-    """Get the most recent word file for the specified strata type."""
-    # Change the path construction to look at the same level as src
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    word_dir = os.path.join(base_dir, 'output', 'stratified_words', 
-                           'quintiles' if strata_type == '5' else 'terciles')
+    """Get the most recently created word file."""
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    base_dir = os.path.join(project_root, 'output', 'stratified_words')
     
-    # Add debug print
-    print(f"Checking directory: {word_dir}")
-    if not os.path.exists(word_dir):
-        os.makedirs(word_dir, exist_ok=True)
-        print(f"Created directory: {word_dir}")
+    # For normal commands, look in the appropriate strata directory
+    strata_dir = 'quintiles' if strata_type == '5' else 'terciles'
+    strata_path = os.path.join(base_dir, strata_dir)
     
-    # Get list of files and sort by modification time
-    files = glob.glob(os.path.join(word_dir, f"stratified_words_*.csv"))
-    if not files:
-        raise FileNotFoundError(f"No word files found in {word_dir}")
+    # Look for stratified word files
+    files = glob.glob(os.path.join(strata_path, 'stratified_words_*.csv'))
+    if files:
+        return max(files, key=os.path.getmtime)
     
-    latest_file = max(files, key=os.path.getmtime)
+    # If no stratified files found, try custom words directory
+    custom_files = glob.glob(os.path.join(base_dir, 'custom_words_*.csv'))
+    if custom_files:
+        return max(custom_files, key=os.path.getmtime)
     
-    # Add debug code to check the DataFrame
-    # df = pd.read_csv(latest_file)
-    # print("Available columns:", df.columns.tolist())
-    # print("First few rows:")
-    # print(df.head())
-    
-    return latest_file
+    raise FileNotFoundError(f"No word files found in {strata_path} or custom words directory")
 
 def setup_output_directory():
     """Create and return the path for assessment items output."""
@@ -190,17 +183,25 @@ def setup_output_directory():
     return output_dir
 
 def generate_assessments(strata_type, seed=None):
-    """Generate assessment items for the specified strata type."""
+    """Generate frequency-complexity vocabulary assessments."""
+    strata_name = 'quintiles' if strata_type == '5' else 'terciles'
+    
     try:
         # Get the latest word file
         word_file = get_latest_word_file(strata_type)
-        strata_name = 'quintiles' if strata_type == '5' else 'terciles'
         print(f"Using {strata_name} word file: {word_file}")
         
-        # Extract seed and age range from the word file name
+        # Extract seed and check if custom words
         filename = os.path.basename(word_file)
-        seed_str = filename.split('seed')[1].split('_age')[0]
-        age_range = filename.split('_age_')[1].split('_')[0]
+        is_custom = 'custom_words' in filename
+        
+        # Handle seed differently for custom words
+        if is_custom:
+            seed_str = filename.split('seed')[1].split('_')[0]
+            age_range = ''
+        else:
+            seed_str = filename.split('seed')[1].split('_age')[0]
+            age_range = filename.split('_age_')[1].split('_')[0]
         
         # Load the words with all metrics
         words_df = pd.read_csv(word_file)

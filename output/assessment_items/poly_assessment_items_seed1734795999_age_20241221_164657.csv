@@ -1,0 +1,4 @@
+Target Word,Stem,Correct_Response,Response_B,Response_C,Response_D,age_range,frequency_awl,complexity_awl,proximity_awl,diversity_awl,polysemy_awl
+Jesus,"He had a JESUS-like compassion for everyone he met, always going out of his way to help those in need.",selfless,savior,quiet,hurried,,-2.7584481,-1.2399129,-0.017778015,-1.7746284,-0.095318921
+kiss,The gentle KISS of sunlight on her face woke her up in the early morning.,touch,smooch,warmth,breeze,,0.65463078,-2.0545237,2.2586291,-1.1290334,1.1016577
+name,It was crucial to NAME all the potential obstacles in the project proposal.,identify,title,ignore,create,,2.9923022,-2.0840869,6.9855971,0.91922712,2.2103324

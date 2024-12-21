@@ -9,6 +9,8 @@ import os
 import csv
 from better_profanity import profanity
 
+pd.options.mode.chained_assignment = None  # default='warn'
+
 # Get the project root directory
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -200,6 +202,53 @@ def process_and_save_words(strata_type='5', min_age_level=3, max_age_level=4, se
     strata_col = f'strata{strata_type}'
     if strata_col in df_target.columns:
         df_target[strata_col] = df_target[strata_col].astype(str).str.zfill(3)
+    
+    return filepath
+
+def process_custom_words(words_input, strata_type='5', min_age_level=None, max_age_level=None, seed=None):
+    """Process user-provided custom words."""
+    words_case = {w.strip().lower(): w.strip()[0] for w in words_input.split(',') if w.strip()}
+    words = list(words_case.keys())
+    
+    # Load the dataset dynamically
+    csv_path = os.path.join(project_root, "data", "predictions_imputed_quantileaoa.csv")
+    full_df = pd.read_csv(csv_path, low_memory=False)
+    
+    # Convert all words to lowercase for matching and drop duplicates
+    full_df['word_lower'] = full_df['word'].str.lower()
+    df_target = full_df[full_df['word_lower'].isin(words)].drop_duplicates(subset=['word_lower'], keep='first')
+    
+    if len(df_target) == 0:
+        error_msg = "No words found in dataset.\n"
+        not_found = set(words) - set(df_target['word_lower'])
+        error_msg += f"\nWords not found: {', '.join(not_found)}"
+        raise ValueError(error_msg)
+    
+    # Prepare for export
+    timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+    output_dir = os.path.join(OUTPUT_DIR, 'stratified_words')
+    os.makedirs(output_dir, exist_ok=True)
+    
+    filepath = os.path.join(
+        output_dir, 
+        f'custom_words_seed{seed}_{timestamp}.csv'
+    )
+    
+    # Format for export - preserve original first letter case
+    df_target['Target_Word'] = df_target['word_lower'].apply(
+        lambda x: x.capitalize() if words_case[x].isupper() else x.lower()
+    )
+    
+    columns_to_export = ['Target_Word', 'frequency_awl', 'complexity_awl', 
+                        'proximity_awl', 'diversity_awl', 'polysemy_awl']
+    
+    df_target[columns_to_export].to_csv(filepath, index=False)
+    
+    print("\nCustom Words Summary:")
+    print(f"Words found: {len(df_target)} out of {len(words)}")
+    print("\nFound words:")
+    for _, row in df_target.iterrows():
+        print(f"{row['Target_Word']}")
     
     return filepath
 
