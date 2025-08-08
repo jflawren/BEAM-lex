@@ -128,6 +128,16 @@ poetry run python src/main.py --min-age 3 --max-age 4 --strata 3
 - Ensure your AI API key is properly set up
 - Check configuration files are in place (see `.gitignore` for required files)
 
+### API Key (config.py)
+Create a git-ignored file at `src/config.py` that contains your OpenAI API key:
+
+```python
+# src/config.py
+api_key = "YOUR_OPENAI_API_KEY"
+```
+
+This project loads the key with `from config import api_key`. Do not commit this file; it is intentionally excluded from version control for security.
+
 ## File Structure and Storage
 
 ### Database Location

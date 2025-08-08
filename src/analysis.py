@@ -3,7 +3,8 @@ import os
 from datetime import datetime
 import seaborn as sns
 import matplotlib.pyplot as plt
-from vocabulary_item_creation3 import get_latest_word_file, setup_output_directory
+from generate_assessment import get_latest_word_file, setup_output_directory
+
 
 def analyze_correlations(strata_type, generation_type):
     """Analyze correlations between word metrics and assessment items."""
