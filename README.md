@@ -138,6 +138,8 @@ poetry run python src/main.py --min-age 3 --max-age 4 --strata 3
 
 ### Output Locations
 
+**Note:** All output directories are created automatically when needed. You don't need to create them manually.
+
 #### Word Lists
 - **Regular stratified words**: `output/stratified_words/`
   - `quintiles/` - 5-level stratified word files
