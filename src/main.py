@@ -5,10 +5,6 @@ from datetime import datetime
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Generate vocabulary assessments')
-    parser.add_argument('--type', 
-                       choices=['basic', 'freq_complex', 'poly'],
-                       default='basic',
-                       help='Type of assessment to generate')
     parser.add_argument('--custom-words',
                        type=str,
                        help='Comma-separated list of custom words or path to text file')
@@ -34,12 +30,11 @@ def parse_args():
     
     return parser.parse_args()
 
-def run_pipeline(generation_type='basic', skip_sampling=False, min_age_level=3, max_age_level=4, strata_type='both', custom_words=None):
+def run_pipeline(skip_sampling=False, min_age_level=3, max_age_level=4, strata_type='both', custom_words=None):
     """
     Run the complete pipeline: sampling words and generating assessments
     
     Parameters:
-    - generation_type: Type of assessment generator ('basic', 'freq_complex', or 'poly')
     - skip_sampling: Whether to skip the word sampling step
     - min_age_level: Minimum education level (1-6)
     - max_age_level: Maximum education level (1-6)
@@ -53,23 +48,20 @@ def run_pipeline(generation_type='basic', skip_sampling=False, min_age_level=3, 
     5: High school
     6: University
     """
-    print(f"Starting vocabulary assessment pipeline using {generation_type} generator...")
-    print(f"Age range: {min_age_level} to {max_age_level}")
-    print(f"Strata type: {strata_type}")
+    print(f"Starting vocabulary assessment pipeline...")
+    
+    # Handle custom words if provided
+    if custom_words:
+        print(f"Strata type: 5 (quintiles) - always used for custom words")
+    else:
+        print(f"Age range: {min_age_level} to {max_age_level}")
+        print(f"Strata type: {strata_type}")
     
     project_root = os.path.dirname(os.path.abspath(__file__))
     sys.path.append(os.path.join(project_root, 'src'))
     
     import sampling
-    from freq_complex_voc import generate_assessments as freq_complex_generate
-    from poly_voc import generate_assessments as poly_generate
-    from vocabulary_item_creation3 import generate_assessments as basic_generate
-    
-    generators = {
-        'basic': basic_generate,
-        'freq_complex': freq_complex_generate,
-        'poly': poly_generate
-    }
+    from generate_assessment import generate_assessments
     
     try:
         # Generate a single seed for the entire run
@@ -78,23 +70,17 @@ def run_pipeline(generation_type='basic', skip_sampling=False, min_age_level=3, 
         
         # Handle custom words if provided
         if custom_words:
-            if os.path.isfile(custom_words):
-                with open(custom_words, 'r') as f:
-                    words = f.read().strip()
-            else:
-                words = custom_words
             print("\n1. Processing custom words...")
             word_file = sampling.process_custom_words(
-                words,
+                custom_words,
                 strata_type='5',  # Always use 5 for custom words
                 min_age_level=min_age_level,
                 max_age_level=max_age_level,
                 seed=seed
             )
             # For custom words, only generate once
-            print(f"\n2. Generating {generation_type} vocabulary assessments...")
-            generator = generators[generation_type]
-            generator('5')
+            print(f"\n2. Generating vocabulary assessments...")
+            generate_assessments('5', use_custom_words=True)
             print("✓ Assessment generation completed")
             
         else:
@@ -129,17 +115,16 @@ def run_pipeline(generation_type='basic', skip_sampling=False, min_age_level=3, 
                 print("\n→ Skipping word sampling step...")
             
             # Generate assessments
-            print(f"\n2. Generating {generation_type} vocabulary assessments...")
-            generator = generators[generation_type]
+            print(f"\n2. Generating vocabulary assessments...")
             
             if strata_type in ['5', 'both']:
                 print("\nGenerating assessments for quintiles...")
-                generator('5')
+                generate_assessments('5')
                 print("✓ Quintiles assessment generation completed")
             
             if strata_type in ['3', 'both']:
                 print("\nGenerating assessments for terciles...")
-                generator('3')
+                generate_assessments('3')
                 print("✓ Terciles assessment generation completed")
             
             # Add correlation analysis
@@ -148,10 +133,10 @@ def run_pipeline(generation_type='basic', skip_sampling=False, min_age_level=3, 
                 from analysis import analyze_correlations
                 
                 if strata_type in ['5', 'both']:
-                    correlations_5 = analyze_correlations('5', generation_type)
+                    correlations_5 = analyze_correlations('5', 'vocabulary')
                 
                 if strata_type in ['3', 'both']:
-                    correlations_3 = analyze_correlations('3', generation_type)
+                    correlations_3 = analyze_correlations('3', 'vocabulary')
         
         print("\n✓ Pipeline completed successfully!")
         print("\nOutput files can be found in:")
@@ -159,7 +144,7 @@ def run_pipeline(generation_type='basic', skip_sampling=False, min_age_level=3, 
         print(f"- Assessments: {os.path.join(project_root, 'output', 'assessment_items')}")
         
     except Exception as e:
-        print(f"\n❌ Error: {str(e)}")
+        print(f"\n Error: {str(e)}")
         sys.exit(1)
 
 def main():
@@ -171,8 +156,7 @@ def main():
         sys.exit(1)
     
     run_pipeline(
-        args.type, 
-        args.skip_sampling,
+        skip_sampling=args.skip_sampling,
         min_age_level=args.min_age,
         max_age_level=args.max_age,
         strata_type=args.strata,

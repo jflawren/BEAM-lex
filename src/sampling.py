@@ -207,8 +207,20 @@ def process_and_save_words(strata_type='5', min_age_level=3, max_age_level=4, se
 
 def process_custom_words(words_input, strata_type='5', min_age_level=None, max_age_level=None, seed=None):
     """Process user-provided custom words."""
-    words_case = {w.strip().lower(): w.strip()[0] for w in words_input.split(',') if w.strip()}
-    words = list(words_case.keys())
+    
+    # Check if input is a file
+    if os.path.isfile(words_input):
+        # Handle text file (one word per line)
+        with open(words_input, 'r') as f:
+            words_content = f.read().strip()
+        
+        # Split by newlines for text files
+        words_list = [w.strip().lower() for w in words_content.split('\n') if w.strip()]
+        words_case = {w: w[0] for w in words_list}
+    else:
+        # Handle comma-separated words
+        words_case = {w.strip().lower(): w.strip()[0] for w in words_input.split(',') if w.strip()}
+        words_list = list(words_case.keys())
     
     # Load the dataset dynamically
     csv_path = os.path.join(project_root, "data", "predictions_imputed_quantileaoa.csv")
@@ -216,11 +228,11 @@ def process_custom_words(words_input, strata_type='5', min_age_level=None, max_a
     
     # Convert all words to lowercase for matching and drop duplicates
     full_df['word_lower'] = full_df['word'].str.lower()
-    df_target = full_df[full_df['word_lower'].isin(words)].drop_duplicates(subset=['word_lower'], keep='first')
+    df_target = full_df[full_df['word_lower'].isin(words_list)].drop_duplicates(subset=['word_lower'], keep='first')
     
     if len(df_target) == 0:
         error_msg = "No words found in dataset.\n"
-        not_found = set(words) - set(df_target['word_lower'])
+        not_found = set(words_list) - set(df_target['word_lower'])
         error_msg += f"\nWords not found: {', '.join(not_found)}"
         raise ValueError(error_msg)
     
@@ -245,7 +257,7 @@ def process_custom_words(words_input, strata_type='5', min_age_level=None, max_a
     df_target[columns_to_export].to_csv(filepath, index=False)
     
     print("\nCustom Words Summary:")
-    print(f"Words found: {len(df_target)} out of {len(words)}")
+    print(f"Words found: {len(df_target)} out of {len(words_list)}")
     print("\nFound words:")
     for _, row in df_target.iterrows():
         print(f"{row['Target_Word']}")

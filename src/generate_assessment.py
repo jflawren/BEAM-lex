@@ -1,13 +1,14 @@
 import openai
 import pandas as pd
 import os
-import time 
-import csv 
+import time
 import glob
 from datetime import datetime
+from openai import OpenAI
 from config import api_key
 
-openai.api_key = api_key
+# Set your OpenAI API key
+client = OpenAI(api_key=api_key)
 
 def generate_assessment_item(word):
     """
@@ -90,71 +91,24 @@ def generate_assessment_item(word):
     prompt = f"{instructions}\n\nTarget_Word: {word}"
 
     try:
-        response = openai.ChatCompletion.create(
-            model="gpt-4o",  # Use the GPT-4 model
+        response = client.chat.completions.create(
+            model="gpt-4o",
             messages=[
                 {"role": "system", "content": "You are an expert at creating vocabulary assessment items."},
                 {"role": "user", "content": prompt}
             ],
-            max_tokens=500,  
-            timeout=15  
+            max_tokens=500,
+            timeout=15
         )
-        return response.choices[0].message['content'].strip()
-    except openai.error.OpenAIError as e:
+        return response.choices[0].message.content.strip()
+    except openai.APIError as e:
         print(f"Error generating assessment item for '{word}': {e}")
         return None
     except Exception as e:
         print(f"Unexpected error generating assessment item for '{word}': {e}")
         return None
 
-new_items = []  
-
-
-# Process the generated items to extract structured data
-formatted_items = []  # List to hold the formatted assessment items
-
-for item in new_items:
-    # Split the generated item into lines
-    lines = item['Generated Item'].split('\n')
-    # Initialize variables to hold the components
-    target_word = ''
-    stem = ''
-    correct_response = ''
-    response_b = ''
-    response_c = ''
-    response_d = ''
-    # Process each line to extract the components
-    for line in lines:
-        if line.strip() == "":
-            continue  # Skip empty lines
-        line = line.strip()
-        if line.startswith('Target_Word:'):
-            target_word = line.split('Target_Word:')[1].strip()
-        elif line.startswith('Stem:'):
-            stem = line.split('Stem:')[1].strip()
-        elif line.startswith('Correct_Response:'):
-            correct_response = line.split('Correct_Response:')[1].strip()
-        elif line.startswith('Response_B:'):
-            response_b = line.split('Response_B:')[1].strip()
-        elif line.startswith('Response_C:'):
-            response_c = line.split('Response_C:')[1].strip()
-        elif line.startswith('Response_D:'):
-            response_d = line.split('Response_D:')[1].strip()
-    # Check if all components have been collected
-    if target_word and stem and correct_response and response_b and response_c and response_d:
-        formatted_items.append([target_word, stem, correct_response, response_b, response_c, response_d])
-    else:
-        print(f"Incomplete item for word: {item['Target Word']}")
-        # print("Generated content:")
-        # print(item['Generated Item'])
-
-# Create a DataFrame from the formatted items
-formatted_items_df = pd.DataFrame(
-    formatted_items,
-    columns=['Target Word', 'Stem', 'Correct_Response', 'Response_B', 'Response_C', 'Response_D']
-)
-
-def get_latest_word_file(strata_type):
+def get_latest_word_file(strata_type, use_custom_words=False):
     """Get the most recently created word file."""
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     base_dir = os.path.join(project_root, 'output', 'stratified_words')
@@ -169,126 +123,160 @@ def get_latest_word_file(strata_type):
         return max(files, key=os.path.getmtime)
     
     # If no stratified files found, try custom words directory
-    custom_files = glob.glob(os.path.join(base_dir, 'custom_words_*.csv'))
-    if custom_files:
-        return max(custom_files, key=os.path.getmtime)
+    if use_custom_words:
+        custom_files = glob.glob(os.path.join(base_dir, 'custom_words_*.csv'))
+        if custom_files:
+            return max(custom_files, key=os.path.getmtime)
     
     raise FileNotFoundError(f"No word files found in {strata_path} or custom words directory")
 
 def setup_output_directory():
     """Create and return the path for assessment items output."""
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    output_dir = os.path.join(base_dir,'output', 'assessment_items')
+    output_dir = os.path.join(base_dir, 'output', 'assessment_items')
     os.makedirs(output_dir, exist_ok=True)
     return output_dir
 
-def generate_assessments(strata_type, seed=None):
-    """Generate frequency-complexity vocabulary assessments."""
+def process_and_format_items(new_items):
+    """Process and format the generated items into a DataFrame."""
+    formatted_items = []
+    for item in new_items:
+        lines = item['Generated Item'].split('\n')
+        components = {
+            'target_word': '',
+            'stem': '',
+            'correct_response': '',
+            'response_b': '',
+            'response_c': '',
+            'response_d': ''
+        }
+        
+        for line in lines:
+            if line.strip() == "":
+                continue
+            line = line.strip()
+            if line.startswith('Target_Word:'):
+                components['target_word'] = line.split('Target_Word:')[1].strip()
+            elif line.startswith('Stem:'):
+                components['stem'] = line.split('Stem:')[1].strip()
+            elif line.startswith('Correct_Response:'):
+                components['correct_response'] = line.split('Correct_Response:')[1].strip()
+            elif line.startswith('Response_B:'):
+                components['response_b'] = line.split('Response_B:')[1].strip()
+            elif line.startswith('Response_C:'):
+                components['response_c'] = line.split('Response_C:')[1].strip()
+            elif line.startswith('Response_D:'):
+                components['response_d'] = line.split('Response_D:')[1].strip()
+        
+        if all(components.values()):
+            formatted_items.append([
+                components['target_word'],
+                components['stem'],
+                components['correct_response'],
+                components['response_b'],
+                components['response_c'],
+                components['response_d']
+            ])
+        else:
+            print(f"Incomplete item for word: {item['Target Word']}")
+            # print("Generated content:")
+            # print(item['Generated Item'])
+
+    return pd.DataFrame(
+        formatted_items,
+        columns=['Target Word', 'Stem', 'Correct_Response', 'Response_B', 'Response_C', 'Response_D']
+    )
+
+def generate_assessments(strata_type, seed=None, use_custom_words=False):
+    """Generate vocabulary assessments."""
     strata_name = 'quintiles' if strata_type == '5' else 'terciles'
     
     try:
         # Get the latest word file
-        word_file = get_latest_word_file(strata_type)
+        word_file = get_latest_word_file(strata_type, use_custom_words)
         print(f"Using {strata_name} word file: {word_file}")
         
         # Extract seed and check if custom words
         filename = os.path.basename(word_file)
         is_custom = 'custom_words' in filename
+        seed_str = filename.split('seed')[1].split('_')[0]
         
-        # Handle seed differently for custom words
-        if is_custom:
-            seed_str = filename.split('seed')[1].split('_')[0]
-            age_range = ''
-        else:
-            seed_str = filename.split('seed')[1].split('_age')[0]
+        # Get age range only for non-custom files
+        age_range = ''
+        if not is_custom:
             age_range = filename.split('_age_')[1].split('_')[0]
         
         # Load the words with all metrics
         words_df = pd.read_csv(word_file)
-        if 'Target_Word' in words_df.columns:
-            new_target_words = words_df['Target_Word'].dropna().tolist()
-        elif 'Word' in words_df.columns:
-            new_target_words = words_df['Word'].dropna().tolist()
-            # Rename 'Word' to 'Target_Word' for consistency
-            words_df = words_df.rename(columns={'Word': 'Target_Word'})
-        else:
-            raise ValueError(f"Error: 'Target_Word' or 'Word' column not found in the {strata_name} file")
-
+        
         # Setup output directory
         output_dir = setup_output_directory()
         
-        # Generate items
-        new_items = []
-        for word in new_target_words:
+        # Generate items and build complete records
+        complete_items = []
+        for index, row in words_df.iterrows():
+            word = row['Target_Word']
+            
             print(f"Generating item for word: {word}")
             item = generate_assessment_item(word)
+                
             if item:
                 item = item.replace('**', '')
-                new_items.append({
-                    "Target Word": word,
-                    "Generated Item": item
-                })
+                # Process the generated item
+                lines = item.split('\n')
+                components = {
+                    'target_word': '',
+                    'stem': '',
+                    'correct_response': '',
+                    'response_b': '',
+                    'response_c': '',
+                    'response_d': ''
+                }
+                
+                for line in lines:
+                    if line.strip() == "":
+                        continue
+                    line = line.strip()
+                    if line.startswith('Target_Word:'):
+                        components['target_word'] = line.split('Target_Word:')[1].strip()
+                    elif line.startswith('Stem:'):
+                        components['stem'] = line.split('Stem:')[1].strip()
+                    elif line.startswith('Correct_Response:'):
+                        components['correct_response'] = line.split('Correct_Response:')[1].strip()
+                    elif line.startswith('Response_B:'):
+                        components['response_b'] = line.split('Response_B:')[1].strip()
+                    elif line.startswith('Response_C:'):
+                        components['response_c'] = line.split('Response_C:')[1].strip()
+                    elif line.startswith('Response_D:'):
+                        components['response_d'] = line.split('Response_D:')[1].strip()
+                
+                if all(components.values()):
+                    # Build complete record with all data from the original row
+                    complete_record = {
+                        'Target Word': word,
+                        'Stem': components['stem'],
+                        'Correct_Response': components['correct_response'],
+                        'Response_B': components['response_b'],
+                        'Response_C': components['response_c'],
+                        'Response_D': components['response_d'],
+                        'age_range': age_range
+                    }
+                    
+                    # Add all metrics from the original row
+                    for col in words_df.columns:
+                        if col != 'Target_Word':  # Avoid duplicate column
+                            complete_record[col] = row[col]
+                    
+                    complete_items.append(complete_record)
+                else:
+                    print(f"Incomplete item for word: {word}")
+            
             time.sleep(1)
 
-        # Process items
-        formatted_items = []
-        for item in new_items:
-            # Split the generated item into lines
-            lines = item['Generated Item'].split('\n')
-            target_word = ''
-            stem = ''
-            correct_response = ''
-            response_b = ''
-            response_c = ''
-            response_d = ''
-            
-            for line in lines:
-                if line.strip() == "":
-                    continue
-                line = line.strip()
-                if line.startswith('Target_Word:'):
-                    target_word = line.split('Target_Word:')[1].strip()
-                elif line.startswith('Stem:'):
-                    stem = line.split('Stem:')[1].strip()
-                elif line.startswith('Correct_Response:'):
-                    correct_response = line.split('Correct_Response:')[1].strip()
-                elif line.startswith('Response_B:'):
-                    response_b = line.split('Response_B:')[1].strip()
-                elif line.startswith('Response_C:'):
-                    response_c = line.split('Response_C:')[1].strip()
-                elif line.startswith('Response_D:'):
-                    response_d = line.split('Response_D:')[1].strip()
-            
-            if target_word and stem and correct_response and response_b and response_c and response_d:
-                formatted_items.append([target_word, stem, correct_response, response_b, response_c, response_d])
-            else:
-                print(f"Incomplete item for word: {item['Target Word']}")
-                print("Generated content:")
-                print(item['Generated Item'])
-
-        # Create DataFrame from formatted items
-        formatted_items_df = pd.DataFrame(
-            formatted_items,
-            columns=['Target Word', 'Stem', 'Correct_Response', 'Response_B', 'Response_C', 'Response_D']
-        )
-
-        # Add age range
-        formatted_items_df['age_range'] = age_range
-
-        # Merge with the original words_df to include all metrics
-        merged_df = pd.merge(
-            formatted_items_df,
-            words_df,
-            how='left',
-            left_on='Target Word',
-            right_on='Target_Word'
-        )
-
-        # Drop duplicate Target_Word column if it exists
-        if 'Target_Word' in merged_df.columns:
-            merged_df = merged_df.drop(columns='Target_Word')
-
-
+        # Create DataFrame from complete records
+        merged_df = pd.DataFrame(complete_items)
+        
+        # Handle strata column
         strata_col = f'strata{strata_type}'
         if strata_col in merged_df.columns:
             merged_df[strata_col] = merged_df[strata_col].astype(str).str.zfill(3)
@@ -296,7 +284,7 @@ def generate_assessments(strata_type, seed=None):
         # Save to CSV with seed before age in filename
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         output_file = os.path.join(output_dir, 
-                               f'freq_complex_assessment_items_seed{seed_str}_age{age_range}_{timestamp}.csv')
+                               f'assessment_items_seed{seed_str}_age{age_range}_{timestamp}.csv')
         
         merged_df.to_csv(output_file, index=False, encoding='utf-8')
         print(f"Assessment items with metrics saved to: {output_file}")
@@ -305,16 +293,3 @@ def generate_assessments(strata_type, seed=None):
     except Exception as e:
         print(f"Error generating {strata_name} assessments: {str(e)}")
         raise
-
-def main():
-    """Legacy main function for backward compatibility"""
-    while True:
-        strata_type = input("Enter strata type (5 for quintiles, 3 for terciles): ").strip()
-        if strata_type in ['3', '5']:
-            break
-        print("Invalid input. Please enter '3' or '5'.")
-    
-    generate_assessments(strata_type)
-
-if __name__ == "__main__":
-    main()
