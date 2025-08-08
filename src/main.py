@@ -167,7 +167,8 @@ def main():
     
     # Validate age range
     if args.min_age > args.max_age:
-        parser.error("Minimum age level cannot be greater than maximum age level")
+        print("Minimum age level cannot be greater than maximum age level")
+        sys.exit(1)
     
     run_pipeline(
         args.type, 
