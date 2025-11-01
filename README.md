@@ -1,13 +1,15 @@
-# ROAR Vocabulary Assessment Generator
+# BEAM-Lex
 
-> An AI-powered tool for generating stratified vocabulary assessments using AI.
+**Bank Engine for AI-made Measures: Lexical**
+
+> An AI-powered tool for generating stratified vocabulary assessments using GPT-4.
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Poetry](https://img.shields.io/badge/poetry-package-blueviolet)](https://python-poetry.org/)
 
 ## Overview
 
-ROAR Vocabulary Assessment Generator is a sophisticated tool designed to create high-quality vocabulary assessments by leveraging AI technology. The system:
+BEAM-Lex (Bank Engine for AI-made Measures: Lexical) is a sophisticated tool designed to create high-quality vocabulary assessments by leveraging AI technology. The system:
 
 - 📊 Uses word stratification data (frequency, complexity, polysemy) from the database
 - 🤖 Generates context-rich vocabulary assessment items using AI
@@ -196,7 +198,7 @@ poetry run python src/main.py --custom-words "words.txt"
 
 ### Example File Structure
 ```
-roar_voc/
+beam-lex/
 ├── data/
 │   └── predictions_imputed_quantileaoa.csv    # Main word database
 ├── output/
