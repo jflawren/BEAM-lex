@@ -12,6 +12,7 @@ ROAR Vocabulary Assessment Generator is a sophisticated tool designed to create 
 - 📊 Uses word stratification data (frequency, complexity, polysemy) from the database
 - 🤖 Generates context-rich vocabulary assessment items using AI
 - 📝 Produces standardized, ready-to-use assessment materials
+- 📈 Automatically performs correlation analysis between lexical dimensions
 
 ## Key Features
 
@@ -77,7 +78,7 @@ poetry run python src/main.py --min-age 4 --max-age 6 --strata 3
 ```
 
 ### Additional Options
-- `--skip-sampling`: Use existing word lists instead of generating new ones
+- `--skip-sampling`: Use existing word lists instead of generating new ones (skips correlation analysis)
 ```bash
 poetry run python src/main.py --min-age 1 --max-age 2 --skip-sampling
 ```
@@ -140,11 +141,12 @@ This project loads the key with `from config import api_key`. Do not commit this
 
 ## File Structure and Storage
 
-### Database Location
+### Database
 - **Main dataset**: `data/predictions_imputed_quantileaoa.csv`
   - Contains 407,513 words with linguistic metrics
   - Used for word stratification and custom word lookup
   - Required for all operations
+  - Information about the dataset and sample data used can be found [here](URL_TO_BE_ADDED)  
 
 ### Output Locations
 
@@ -154,16 +156,16 @@ This project loads the key with `from config import api_key`. Do not commit this
 - **Regular stratified words**: `output/stratified_words/`
   - `quintiles/` - 5-level stratified word files
   - `terciles/` - 3-level stratified word files
-  - Files named: `stratified_words_seed{timestamp}_age_{min}-{max}_{timestamp}.csv`
+  - Files named: `stratified_words_seed{seed}_age_{min}-{max}_{timestamp}.csv`
 
 #### Custom Words
 - **Custom word files**: `output/stratified_words/`
-  - Files named: `custom_words_seed{timestamp}_{timestamp}.csv`
+  - Files named: `custom_words_seed{seed}_{timestamp}.csv`
   - Created when using `--custom-words` option
 
 #### Assessment Items
 - **Generated assessments**: `output/assessment_items/`
-  - Files named: `assessment_items_seed{timestamp}_age_{timestamp}.csv`
+  - Files named: `assessment_items_seed{seed}_age{range}_{timestamp}.csv`
   - Contains: Target Word, Stem, Correct_Response, Response_B, Response_C, Response_D, metrics
 
 ### Custom Words Input
@@ -202,8 +204,10 @@ roar_voc/
 │   │   ├── quintiles/                         # 5-level word files
 │   │   ├── terciles/                          # 3-level word files
 │   │   └── custom_words_*.csv                 # Custom word files
-│   └── assessment_items/
-│       └── assessment_items_*.csv             # Generated assessments
+│   ├── assessment_items/
+│   │   └── assessment_items_*.csv             # Generated assessments
+│   └── correlations/
+│       └── correlations_*.csv/.png            # Correlation analysis outputs
 ├── src/
 │   └── main.py                               # Main script
 └── words.txt                                 # Example custom words file
