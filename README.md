@@ -22,6 +22,9 @@ BEAM-Lex (Bank Engine for AI-made Measures: Lexical) is a sophisticated tool des
 - **Multi-level Classification**
   - Quintile (5-level) stratification for fine-grained assessment
   - Tercile (3-level) stratification for broader grouping
+- **Lexical Dimensions Framework**
+  - Stratification based on five latent lexical dimensions: Frequency, Complexity, Proximity, Polysemy, and Diversity
+  - Framework based on [Knoph et al. (2023)](https://academicvocab.times.uh.edu/presentations-publications/latent-lexical-dimensions/)
   
 ### Assessment Type
 - **Basic Assessment**: Traditional vocabulary testing format with AI-generated context-rich items
@@ -148,6 +151,7 @@ This project loads the key with `from config import api_key`. Do not commit this
   - Contains 407,513 words with linguistic metrics
   - Used for word stratification and custom word lookup
   - Required for all operations
+  - **Lexical dimensions**: The five lexical dimensions (Frequency, Complexity, Proximity, Polysemy, Diversity) used for stratification are based on the framework described in [Knoph et al. (2023)](https://academicvocab.times.uh.edu/presentations-publications/latent-lexical-dimensions/)
   - Information about the dataset and sample data used can be found [here](URL_TO_BE_ADDED)  
 
 ### Output Locations
