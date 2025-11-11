@@ -152,7 +152,7 @@ This project loads the key with `from config import api_key`. Do not commit this
   - Used for word stratification and custom word lookup
   - Required for all operations
   - **Lexical dimensions**: The five lexical dimensions (Frequency, Complexity, Proximity, Polysemy, Diversity) used for stratification are based on the framework described in [Knoph et al. (2023)](https://academicvocab.times.uh.edu/presentations-publications/latent-lexical-dimensions/)
-  - Information about the dataset and sample data used can be found [here](URL_TO_BE_ADDED)  
+  - Information about the dataset and sample data used can be found [here](https://academicvocab.times.uh.edu/presentations-publications/latent-lexical-dimensions/)  
 
 ### Output Locations
 
